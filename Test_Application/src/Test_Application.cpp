@@ -11,5 +11,7 @@ using namespace std;
 
 int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	cout << "DID I JUST SETUP GIT?" <<endl;
+	cout << "AWESOME!"<< endl;
 	return 0;
 }
