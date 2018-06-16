@@ -1,16 +1,16 @@
-**Name        : Programming 2250 - REPO**
+> **Name        : Programming 2250 - REPO**
 
 
-**Author      : Anthony Huber-Winkler**
+> **Author      : Anthony Huber-Winkler**
 
 
-**Version     : n/a**
+> **Version     : n/a**
 
 
-**Copyright   : COMP SCI Section: 2250**
+> **Copyright   : COMP SCI Section: 2250**
 
 
-**Description : This is a collection of all of my programming work for class.**
+> **Description : This is a collection of all of my programming work for class.**
 
 
 ## **Important Links**
