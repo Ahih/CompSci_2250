@@ -1,10 +1,8 @@
-**//============================================================================**
-**// Name        : Programming 2250 - REPO**
-**// Author      : Anthony Huber-Winkler**
-**// Version     : n/a**
-**// Copyright   : COMP SCI Section: 2250**
-**// Description : This is a collection of all of my programming work for class.**
-**//============================================================================**
+> **Name        : Programming 2250 - REPO**
+> **Author      : Anthony Huber-Winkler**
+> **Version     : n/a**
+> **Copyright   : COMP SCI Section: 2250**
+> **Description : This is a collection of all of my programming work for class.**
 
 ## **Important Links**
 * https://guides.github.com/features/mastering-markdown/
