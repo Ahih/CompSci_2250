@@ -1,10 +1,10 @@
-# //============================================================================
-# // Name        : Programming 2250 - REPO
-# // Author      : Anthony Huber-Winkler
-# // Version     : n/a
-# // Copyright   : COMP SCI Section: 2250
-# // Description : This is a collection of all of my programming work for class.
-# //============================================================================
+## **//============================================================================**
+   **// Name        : Programming 2250 - REPO**
+   **// Author      : Anthony Huber-Winkler**
+   **// Version     : n/a**
+   **// Copyright   : COMP SCI Section: 2250**
+   **// Description : This is a collection of all of my programming work for class.**
+## **//============================================================================**
 
 ## **IMPORTANT LINKS**
 * https://guides.github.com/features/mastering-markdown/
@@ -25,9 +25,8 @@
 * Insufficient comments could lead to loss of points.
 
 ## Projects:
-### Project 1: Due: 6/21 (11:59PM)
-**Bubble Sort and Binary Search**
-* Let us develop a C++ program with the following requirements.
+### Project 1: **Bubble Sort and Binary Search** Due: 6/21 (11:59PM)
+* Let us develop a C++ program with the following requirements:
 1. The program first creates an array of 20 random positive numbers between 1 and 100. Make sure there are no duplicates in the array.
 1. Then apply bubble sort to sort the array in ascending order, then display the entire array.
 1. Now, ask user to enter any number between 1 and 100.
