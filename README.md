@@ -1,12 +1,12 @@
 **//============================================================================**
-> **// Name        : Programming 2250 - REPO**
-> **// Author      : Anthony Huber-Winkler**
-> **// Version     : n/a**
-> **// Copyright   : COMP SCI Section: 2250**
-> **// Description : This is a collection of all of my programming work for class.**
+**// Name        : Programming 2250 - REPO**
+**// Author      : Anthony Huber-Winkler**
+**// Version     : n/a**
+**// Copyright   : COMP SCI Section: 2250**
+**// Description : This is a collection of all of my programming work for class.**
 **//============================================================================**
 
-## **IMPORTANT LINKS**
+## **Important Links**
 * https://guides.github.com/features/mastering-markdown/
 
 ## **All Project Requirements**
@@ -24,7 +24,7 @@
 * Each source file (.cpp, .h) must contain enough comments here and there to make it easy to follow your code.
 * Insufficient comments could lead to loss of points.
 
-## Projects:
+## Class Projects:
 ### Project 1: 
 * **Bubble Sort and Binary Search** 
 * Due: 6/21 (11:59PM)
