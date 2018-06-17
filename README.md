@@ -8,9 +8,11 @@
 
 
 ## **Important Links**
+* https://ahih.github.io/CompSci_2250/
 * https://umsl.instructure.com/courses/39605
 * https://guides.github.com/features/mastering-markdown/
 * http://www.cplusplus.com/
+* https://stackoverflow.com
 
 ## **All Project Requirements**
 ### What to submit:
@@ -28,7 +30,7 @@
 * Insufficient comments could lead to loss of points.
 
 ## Class Projects:
-### [ ] Project 1: 
+### [x] Project 1: 
 * **Bubble Sort and Binary Search** 
 * Due: 6/21 (11:59PM)
 * Let us develop a C++ program with the following requirements:
@@ -38,6 +40,6 @@
 1. [x] Use binary search to check if the user’s number is contained in the array. 
   1) If yes, display ‘yes’ with the index of the matching element. 
   1) If not, display ‘no’.
-1. [ ] Ask if the user wants to continue. 
+1. [x] Ask if the user wants to continue. 
   1) If yes, return to Step 3. 
   1) If no, terminate program.

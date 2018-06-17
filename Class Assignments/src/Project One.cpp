@@ -55,7 +55,7 @@ int GetRandArray(int randNumber, int validArray[20]) {
 			// Navigate to random number module
 			randNumber = GetRandNumber(randNumber);
 
-			// Testing Output
+			// Testing Output for Number Generator
 			//printf ("Random Number: %d\n", randNumber);
 
 			// Bad number, START OVER
@@ -115,16 +115,17 @@ int BinarySearch (int validArray[20], int leftLimit, int rightLimit, int userNum
 
 		// Is the number less than the middle index?
 		else if (validArray[midValue] > userNumber) {
-			BinarySearch(validArray, leftLimit, midValue-1, userNumber);
+			return BinarySearch(validArray, leftLimit, midValue-1, userNumber);
 		}
 
 		// Is the number more than the middle index?
-		else {
-			BinarySearch(validArray, leftLimit, midValue+1, userNumber);
+		else if (validArray[midValue] < userNumber) {
+			return BinarySearch(validArray, midValue+1, rightLimit, userNumber);
 		}
+
 	}
 
-	// Return negative search results
+	// Navigate back to the MAIN with a negative search result
 	return -1;
 }
 
@@ -137,46 +138,91 @@ int main() {
 	// Initialize variables
 	int randNumber = 0;
 	int validArray [20] = { };
+	int arrayMAX = sizeof(validArray)/sizeof(validArray[0]);
 	int userNumber = 0;
 	int storeSearch = 0;
+	bool programStop = false;
+	char programContinue;
 
 	// Welcome Message
-	printf ("Welcome to Anthony's Number Store. \n");
+	printf ("Welcome to Anthony's Number Store. \n\n");
 
 	// Navigate to the array creation module
 	validArray[20] = GetRandArray(randNumber, validArray);
 
-	// Testing Output
+	/* Testing output for Random Array
 	for(int i=0; i<20; i++) {
-		cout << "Array Value of " << i << " = " << validArray[i] << endl;
-	};
+		printf ("Array Value of " << i << " = " << validArray[i] << "\n");
+	}; */
 
 	// Navigate to bubble sorter module
 	validArray[20] = BubbleSort(validArray);
 
-	// Testing Output
+	/* Testing Output for Sorted Array
 	for(int i=0; i<20; i++) {
-		cout << "SORTED Array Value of " << i <<" = " << validArray[i] << endl;
-	};
+		printf ("SORTED Array Value of " << i <<" = " << validArray[i] << "\n");
+	}; */
 
-	// Inquire with user about their desired number
-	printf ("Please enter an integer number 1-100. Let me check if it's in stock. \n");
-	scanf ("%d", &userNumber);
+	// BEGIN PROGRAM LOOP
+	while (!programStop) {
 
-	// Setup search variables
-	int arraySize = sizeof(validArray)/sizeof(validArray[0]);
+		// Ask user if they want to use the program.
+		printf ("\nWould you like to search the store for a number? Please enter 'Y' or 'N'. ");
+		cin >> programContinue;
 
-	// Navigate to binary search module
-	storeSearch = BinarySearch(validArray, 0, arraySize-1, userNumber);
+		// Validate user input
+		switch (programContinue) {
 
-	if (storeSearch == -1) {
-		printf ("Sorry friend. No luck today. \n");
+			// User said yes.
+			case 'Y': case 'y':
+
+				// Inquire with user about their desired number
+				cout << "\nPlease enter an integer number 1-100. Let me check if it's in stock. ";
+				cin >> userNumber;
+
+				// Validate user's stock request.
+				while ((!cin) || ((userNumber > 100) || (userNumber < 0))) {
+
+					// Invalid Input
+						printf ("\nINVALID INPUT. TRY AGAIN...\n");
+						cin.clear();
+						cin.ignore();
+						cin >> userNumber;
+					}
+
+					// Navigate to binary search module
+					storeSearch = BinarySearch(validArray, 0, arrayMAX-1, userNumber);
+
+					// Negative results
+					if (storeSearch == -1) {
+						printf ("\nSorry friend, no luck today. \n");
+					}
+
+					// Positive results
+					else {
+						cout << "\nWe do have it in stock! It's in aisle " << storeSearch + 1 << ". \n";
+					}
+
+					// Leave case statement
+					break;
+
+			// User said no.
+			case 'N': case 'n':
+
+				// Farewell Message
+				printf ("\nWell then, thank you for stopping by anyway! See you soon...\n");
+				programStop = true;
+				break;
+
+			// User failed to enter anything correct.
+			default:
+
+				// Invalid Input
+				printf ("\nINVALID INPUT. TRY AGAIN.\n");
+				break;
+
+		}
 	}
-
-	else {
-		cout << "We do have it in stock! It's in aisle " << storeSearch + 1 << ". \n";
-	}
-
 
 	// EXIT PROGRAM
 	return 0;
