@@ -1,12 +1,12 @@
-> **Name        : Programming 2250 - REPO**
+**Name        : Programming 2250 - REPO**
 
-> **Author      : Anthony Huber-Winkler**
+**Author      : Anthony Huber-Winkler**
 
-> **Version     : n/a**
+**Version     : n/a**
 
-> **Copyright   : COMP SCI Section: 2250**
+**Copyright   : COMP SCI Section: 2250**
 
-> **Description : This is a collection of all of my programming work for class.**
+**Description : This is a collection of all of my programming work for class.**
 
 
 ## **Important Links**
@@ -35,5 +35,9 @@
 1. The program first creates an array of 20 random positive numbers between 1 and 100. Make sure there are no duplicates in the array.
 1. Then apply bubble sort to sort the array in ascending order, then display the entire array.
 1. Now, ask user to enter any number between 1 and 100.
-1. Use binary search to check if the user’s number is contained in the array. If so, display ‘yes’ with the index of the matching element. If not, display ‘no’.
-1. Ask if the user wants to continue. If yes, return to Step 3. If no, terminate program.
+1. Use binary search to check if the user’s number is contained in the array. 
+  1. If yes, display ‘yes’ with the index of the matching element. 
+  1. If not, display ‘no’.
+1. Ask if the user wants to continue. 
+  1. If yes, return to Step 3. 
+  1. If no, terminate program.
