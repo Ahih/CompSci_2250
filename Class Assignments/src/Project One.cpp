@@ -78,24 +78,23 @@ int GetRandArray(int randNumber, int validArray[20]) {
 
 int BubbleSort (int validArray[20]) {
 
-	// Initialize temporary value
+	// Initialize variables
 	int tempValue = 0;
-	bool swap;
 
+	// START SORT LOOP
 	for(int i=0; i<20; i++) {
-		for(int i=0; i<20; i++) {
-			if (validArray[i] > validArray[i+1]) {
-				tempValue = validArray[i];
-				validArray[i] = validArray[i+1];
-				validArray[i+1] = tempValue;
+		for(int j=0; j<19; j++) {
+
+			// Compare number in array with neighbor
+			if (validArray[j] > validArray[j+1]) {
+				tempValue = validArray[j];
+				validArray[j] = validArray[j+1];
+				validArray[j+1] = tempValue;
 			}
-
-
 		}
 	}
 
-
-
+	// Navigate back to MAIN with VALID SORTED ARRAY
 	return validArray[20];
 }
 
@@ -124,6 +123,8 @@ int main() {
 	for(int i=0; i<20; i++) {
 		cout << "SORTED Array Value of " << i <<" = " << validArray[i] << endl;
 	};
+
+
 
 	// EXIT PROGRAM
 	return 0;
