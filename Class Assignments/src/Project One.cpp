@@ -56,7 +56,7 @@ int GetRandArray(int randNumber, int validArray[20]) {
 			randNumber = GetRandNumber(randNumber);
 
 			// Testing Output
-			printf ("Random Number: %d\n", randNumber);
+			//printf ("Random Number: %d\n", randNumber);
 
 			// Bad number, START OVER
 			if (checkArray[randNumber] == 1) {
@@ -76,6 +76,7 @@ int GetRandArray(int randNumber, int validArray[20]) {
 	return validArray[20];
 }
 
+// Sort numbers into increasing order
 int BubbleSort (int validArray[20]) {
 
 	// Initialize variables
@@ -98,6 +99,35 @@ int BubbleSort (int validArray[20]) {
 	return validArray[20];
 }
 
+// Search array for user's number
+int BinarySearch (int validArray[20], int leftLimit, int rightLimit, int userNumber) {
+
+	// START SEARCH LOOP
+	if (rightLimit >= leftLimit) {
+
+		// Determine middle indexed value
+		int midValue = leftLimit + (rightLimit - leftLimit)/2;
+
+		// Is there number the middle index?
+		if (validArray[midValue] == userNumber){
+			return midValue;
+		}
+
+		// Is the number less than the middle index?
+		else if (validArray[midValue] > userNumber) {
+			BinarySearch(validArray, leftLimit, midValue-1, userNumber);
+		}
+
+		// Is the number more than the middle index?
+		else {
+			BinarySearch(validArray, leftLimit, midValue+1, userNumber);
+		}
+	}
+
+	// Return negative search results
+	return -1;
+}
+
 
 int main() {
 
@@ -107,6 +137,11 @@ int main() {
 	// Initialize variables
 	int randNumber = 0;
 	int validArray [20] = { };
+	int userNumber = 0;
+	int storeSearch = 0;
+
+	// Welcome Message
+	printf ("Welcome to Anthony's Number Store. \n");
 
 	// Navigate to the array creation module
 	validArray[20] = GetRandArray(randNumber, validArray);
@@ -124,6 +159,23 @@ int main() {
 		cout << "SORTED Array Value of " << i <<" = " << validArray[i] << endl;
 	};
 
+	// Inquire with user about their desired number
+	printf ("Please enter an integer number 1-100. Let me check if it's in stock. \n");
+	scanf ("%d", &userNumber);
+
+	// Setup search variables
+	int arraySize = sizeof(validArray)/sizeof(validArray[0]);
+
+	// Navigate to binary search module
+	storeSearch = BinarySearch(validArray, 0, arraySize-1, userNumber);
+
+	if (storeSearch == -1) {
+		printf ("Sorry friend. No luck today. \n");
+	}
+
+	else {
+		cout << "We do have it in stock! It's in aisle " << storeSearch + 1 << ". \n";
+	}
 
 
 	// EXIT PROGRAM

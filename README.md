@@ -29,13 +29,13 @@
 * Insufficient comments could lead to loss of points.
 
 ## Class Projects:
-### Project 1: 
+### [x] Project 1: 
 * **Bubble Sort and Binary Search** 
 * Due: 6/21 (11:59PM)
 * Let us develop a C++ program with the following requirements:
 1. [x] The program first creates an array of 20 random positive numbers between 1 and 100. Make sure there are no duplicates in the array.
 1. [x] Then apply bubble sort to sort the array in ascending order, then display the entire array.
-1. [ ] Now, ask user to enter any number between 1 and 100.
+1. [x] Now, ask user to enter any number between 1 and 100.
 1. [ ] Use binary search to check if the user’s number is contained in the array. 
   1) If yes, display ‘yes’ with the index of the matching element. 
   1) If not, display ‘no’.
