@@ -2,9 +2,9 @@
 
 **Author      : Anthony Huber-Winkler**
 
-**Class Name  : COMP SCI Section: 2250**
+**Class Name  : Computer Science - Section: 2250**
 
-**Description : This is a collection of all of my college work for my latest programming class.**
+**Description : This is a collection for all of my college work in my latest programming class.**
 
 
 ## **Important Links**
