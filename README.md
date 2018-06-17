@@ -1,17 +1,16 @@
-**Name        : Programming 2250 - REPO**
+**Name        : COMPSCI_2250 - REPO**
 
 **Author      : Anthony Huber-Winkler**
 
-**Version     : n/a**
+**Class Name  : COMP SCI Section: 2250**
 
-**Copyright   : COMP SCI Section: 2250**
-
-**Description : This is a collection of all of my programming work for class.**
+**Description : This is a collection of all of my college work for my latest programming class.**
 
 
 ## **Important Links**
 * https://umsl.instructure.com/courses/39605
 * https://guides.github.com/features/mastering-markdown/
+* http://www.cplusplus.com/
 
 ## **All Project Requirements**
 ### What to submit:
@@ -29,14 +28,14 @@
 * Insufficient comments could lead to loss of points.
 
 ## Class Projects:
-### [x] Project 1: 
+### [ ] Project 1: 
 * **Bubble Sort and Binary Search** 
 * Due: 6/21 (11:59PM)
 * Let us develop a C++ program with the following requirements:
 1. [x] The program first creates an array of 20 random positive numbers between 1 and 100. Make sure there are no duplicates in the array.
 1. [x] Then apply bubble sort to sort the array in ascending order, then display the entire array.
 1. [x] Now, ask user to enter any number between 1 and 100.
-1. [ ] Use binary search to check if the user’s number is contained in the array. 
+1. [x] Use binary search to check if the user’s number is contained in the array. 
   1) If yes, display ‘yes’ with the index of the matching element. 
   1) If not, display ‘no’.
 1. [ ] Ask if the user wants to continue. 
