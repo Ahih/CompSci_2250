@@ -81,17 +81,26 @@ int BubbleSort (int validArray[20]) {
 
 	// Initialize variables
 	int tempValue = 0;
+	int MAX = 19;
+	bool swap;
 
 	// START SORT LOOP
-	for(int i=0; i<20; i++) {
-		for(int j=0; j<19; j++) {
+	while (swap == true) {
+		for(int j=0; j<MAX; j++) {
+
+			// Engage SWAP condition
+			swap = false;
 
 			// Compare number in array with neighbor
 			if (validArray[j] > validArray[j+1]) {
 				tempValue = validArray[j];
 				validArray[j] = validArray[j+1];
 				validArray[j+1] = tempValue;
+				swap = true;
 			}
+
+			// Increment MAX counter
+			MAX--;
 		}
 	}
 
@@ -142,6 +151,7 @@ int main() {
 	int userNumber = 0;
 	int storeSearch = 0;
 	bool programStop = false;
+	bool switchStop = false;
 	char programContinue;
 
 	// Welcome Message
@@ -169,58 +179,67 @@ int main() {
 		// Ask user if they want to use the program.
 		printf ("\nWould you like to search the store for a number? Please enter 'Y' or 'N'. ");
 		cin >> programContinue;
+		cin.ignore(10000, '\n');
+		switchStop = false;
 
-		// Validate user input
-		switch (programContinue) {
+		// Menu Loop
+		while (!switchStop) {
 
-			// User said yes.
-			case 'Y': case 'y':
+			// Validate user input
+			switch (programContinue) {
 
-				// Inquire with user about their desired number
-				cout << "\nPlease enter an integer number 1-100. Let me check if it's in stock. ";
-				cin >> userNumber;
+				// User said yes.
+				case 'Y': case 'y':
 
-				// Validate user's stock request.
-				while ((!cin) || ((userNumber > 100) || (userNumber < 0))) {
+					// Inquire with user about their desired number
+					cout << "\nPlease enter an integer number 1-100. Let me check if it's in stock. ";
+					cin >> userNumber;
 
-					// Invalid Input
-						printf ("\nINVALID INPUT. TRY AGAIN...\n");
-						cin.clear();
-						cin.ignore();
-						cin >> userNumber;
+					// Validate user's stock request.
+					if (cin.fail() || userNumber > 100 || userNumber < 0) {
+
+						// Invalid Input
+						printf ("\nPlease enter a valid integer between 1-100. Try again...\n");
+
 					}
 
-					// Navigate to binary search module
-					storeSearch = BinarySearch(validArray, 0, arrayMAX-1, userNumber);
-
-					// Negative results
-					if (storeSearch == -1) {
-						printf ("\nSorry friend, no luck today. \n");
-					}
-
-					// Positive results
 					else {
-						cout << "\nWe do have it in stock! It's in aisle " << storeSearch + 1 << ". \n";
+						// Navigate to binary search module
+						storeSearch = BinarySearch(validArray, 0, arrayMAX-1, userNumber);
+						switchStop = true;
+
+						// Negative results
+						if (storeSearch == -1) {
+							printf ("\nSorry friend, no luck today. \n");
+						}
+
+						// Positive results
+						else {
+							printf ("\nWe do have it in stock! It's in aisle %i.\n", storeSearch+1);
+						}
 					}
 
 					// Leave case statement
+					cin.clear();
+					cin.ignore(10000, '\n');
 					break;
 
-			// User said no.
-			case 'N': case 'n':
+				// User said no.
+				case 'N': case 'n':
 
-				// Farewell Message
-				printf ("\nWell then, thank you for stopping by anyway! See you soon...\n");
-				programStop = true;
-				break;
+					// Farewell Message
+					printf ("\nWell then, thank you for stopping by anyway! See you soon...\n");
+					return 0;
 
-			// User failed to enter anything correct.
-			default:
+				// User failed to enter anything correct.
+				default:
 
-				// Invalid Input
-				printf ("\nINVALID INPUT. TRY AGAIN.\n");
-				break;
+					// Invalid Input
+					printf ("\nPlease enter ONLY Y or N. Try again...\n");
+					switchStop = true;
+					break;
 
+			}
 		}
 	}
 
