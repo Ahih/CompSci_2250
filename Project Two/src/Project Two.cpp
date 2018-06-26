@@ -12,22 +12,16 @@
 // Due: 6/28 (11:59PM)
 // Let us develop a C++ program with the following requirements:
 	1. The program first asks user to enter the number of elements for an array. (Number N)
-	2. It then creates a dynamic array of size N + 1, containing N random lower-case alphabet letters 	   	   between ‘a’ and ‘z’. Make sure the last element is a null character ‘n0’.
-  	   a) Here, make sure to use dynamic memory allocation (using new command) to allocate memory space 		  	      for the array, which is exactly why we call it a dynamic array.
+	2. It then creates a dynamic array of size N + 1, containing N random lower-case alphabet letters between ‘a’ and ‘z’. Make sure the last element is a null character ‘n0’.
+  	   a) Here, make sure to use dynamic memory allocation (using new command) to allocate memory space for the array, which is exactly why we call it a dynamic array.
 	3. After creating the array, the program displays the entire array.
-  	   a) Here, you must define and use a function showArray to display the array. This function must
-  	      have the following prototype: **void showArray(char *);**
-  	   b) Note that it does not pass the array size as a parameter (you don’t need it when you use
-  	      pointer).
-  	   c) You are NOT allowed to use array index or array bracket within this function to access
-  	      elements. Instead, use pointer to do so.
+  	   a) Here, you must define and use a function showArray to display the array. This function must have the following prototype: void showArray(char *);
+  	   b) Note that it does not pass the array size as a parameter (you don’t need it when you use pointer).
+  	   c) You are NOT allowed to use array index or array bracket within this function to access elements. Instead, use pointer to do so.
 	4. Then reverse the elements of this array. Note that the original array is changed as a result.
-  	   a) Here, you must define and use a function reverseArray to reverse the array elements. This
-  	      function must have the following prototype: **void reverseArray(char *);**
-	   b) Note that it does not pass the array size as a parameter (you don’t need it when you use
-	   	  pointer).
-  	   c) You are NOT allowed to use array index or array bracket within this function to access
-  	      elements.Instead, use pointer to do so.
+  	   a) Here, you must define and use a function reverseArray to reverse the array elements. This function must have the following prototype: void reverseArray(char *);
+	   b) Note that it does not pass the array size as a parameter (you don’t need it when you use pointer).
+  	   c) You are NOT allowed to use array index or array bracket within this function to access elements. Instead, use pointer to do so.
 	5. After reversing the array, call showArray function again to display the reversed array.
 	6. Ask if the user wants to continue.
   	   a) If yes, return to Step 1.
@@ -43,15 +37,59 @@
 #include <ctime>
 using namespace std;
 
-// Generate a random number
-int GetRandNumber(int randNumber) {
+// Generate a random letter
+int GetRandLetter (char randLetter) {
 
-	// Create random number 1-100
-	randNumber = (rand()%26)+1;
+	// Create random character 'a'-'z'
+	randLetter = 'a' + (rand()%26);
 
-	// Navigate back to MAIN with valid number
-	return randNumber;
+	// Navigate back to call statement
+	return randLetter;
 }
+
+/*
+// Generate random array
+int GetValidArray(int n) {
+
+
+	// Navigate back to MAIN with VALID ARRAY
+	return arrayLetter[n];
+}
+*/
+
+/*
+// Sort numbers into increasing order
+int BubbleSort (int validArray[20]) {
+
+	// Initialize variables
+	int tempValue = 0;
+	int MAX = 19;
+	bool swap;
+
+	// START SORT LOOP
+	while (swap == true) {
+		for(int j=0; j<MAX; j++) {
+
+			// Engage SWAP condition
+			swap = false;
+
+			// Compare number in array with neighbor
+			if (validArray[j] > validArray[j+1]) {
+				tempValue = validArray[j];
+				validArray[j] = validArray[j+1];
+				validArray[j+1] = tempValue;
+				swap = true;
+			}
+
+			// Increment MAX counter
+			MAX--;
+		}
+	}
+
+	// Navigate back to MAIN with VALID SORTED ARRAY
+	return validArray[20];
+}
+*/
 
 int main() {
 
@@ -59,20 +97,120 @@ int main() {
 	srand (time(NULL));
 
 	// Initialize variables
-	int randNumber = 0;
-	int validArray [20] = { };
-	int arrayMAX = sizeof(validArray)/sizeof(validArray[0]);
-	int userNumber = 0;
-	int storeSearch = 0;
+	int n = 0;
+	char randLetter = 'a';
+
+	// Initialize menu variables
 	bool programStop = false;
 	bool switchStop = false;
 	char programContinue;
 
-	// Welcome Message
-	printf ("Welcome to Anthony's Number Store. \n\n");
 
-	// Navigate to the array creation module
-	validArray[20] = GetRandArray(randNumber, validArray);
+	// Welcome Message
+	printf ("Welcome to Anthony's Array Reversal Shop. \n\n");
+
+	// BEGIN PROGRAM LOOP
+		while (!programStop) {
+
+			// Ask user if they want to use the program.
+			printf ("\nWould you like to reverse an array? ");
+			cin >> programContinue;
+			cin.ignore(10000, '\n');
+			switchStop = false;
+
+			// Menu Loop
+			while (!switchStop) {
+
+				// Validate user input
+				switch (programContinue) {
+
+					// User said yes.
+					case 'Y': case 'y':
+
+						// Inquire with user about their desired number
+						cout << "\nHow big is your array? Please enter an integer number 1-100. ";
+						cin >> n;
+
+						// Validate user's stock request.
+						if (cin.fail() || n > 100 || n < 0) {
+
+							// Invalid Input
+							printf ("\nPlease enter a valid integer between 1-100. Try again...\n");
+
+						}
+
+						else {
+
+							// Qualify successful user input
+							switchStop = true;
+
+							// Setup array
+							char* arrayLetter = new char[n+1]();
+							//arrayLetter[n+1] = '\0';
+
+							// Navigate to letter generator
+							for (int i=0; i<n; i++) {
+								arrayLetter[i] = GetRandLetter (randLetter);
+							}
+
+							// Output array for testing purposes
+							for (int k=0; k<n; k++) {
+								printf ("Random Letter: %c \n", arrayLetter[k]);
+							}
+
+							// Initialize Variables
+							int MAX = n;
+							char tempValue;
+
+							// Reverse array loop
+							for(int j=0; j<n; j++) {
+
+								tempValue = arrayLetter[j];
+								arrayLetter[j] = arrayLetter[MAX];
+								cout << j << arrayLetter[j] << endl;
+								arrayLetter[MAX] = tempValue;
+								cout << j << " - " << arrayLetter[MAX];
+
+								MAX--;
+								cout << "\n";
+							}
+
+							cout << "\n";
+
+							// Output array for testing purposes
+							for (int z=0; z<n; z++) {
+								printf ("New Order: %c \n", arrayLetter[z]);
+							}
+
+
+						}
+
+						// Leave case statement
+						cin.clear();
+						cin.ignore(10000, '\n');
+						break;
+
+					// User said no.
+					case 'N': case 'n':
+
+						// Farewell Message
+						printf ("\nWell then, thank you for stopping by anyway! See you soon...\n");
+						return 0;
+
+					// User failed to enter anything correct.
+					default:
+
+						// Invalid Input
+						printf ("\nPlease enter ONLY Y or N. Try again...\n");
+						switchStop = true;
+						break;
+
+				}
+			}
+		}
+
+
+
 
 
 	// EXIT PROGRAM
