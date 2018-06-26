@@ -48,9 +48,12 @@ int GetRandLetter (char randLetter) {
 }
 
 // Display array
-void showArray(char *) {
+void ShowArray(char *showArray) {
 
-	cout << "Show me the ARRAY! "<< *showArray << "\n" << endl;
+	for (int s=0; s<5; s++){
+		cout << "Show me the ARRAY! "<< *(showArray + s) << "\n";
+
+	}
 
 	return;
 
@@ -127,7 +130,7 @@ int main() {
 
 
 							// Navigate to array display module
-							showArray( arrayLetter);
+							ShowArray ( arrayLetter );
 
 							// Initialize Variables
 							int MAX = n;
