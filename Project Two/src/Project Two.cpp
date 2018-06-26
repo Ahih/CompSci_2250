@@ -47,49 +47,15 @@ int GetRandLetter (char randLetter) {
 	return randLetter;
 }
 
-/*
-// Generate random array
-int GetValidArray(int n) {
+// Display array
+void showArray(char *) {
 
+	cout << "Show me the ARRAY! "<< *showArray << "\n" << endl;
 
-	// Navigate back to MAIN with VALID ARRAY
-	return arrayLetter[n];
+	return;
+
 }
-*/
 
-/*
-// Sort numbers into increasing order
-int BubbleSort (int validArray[20]) {
-
-	// Initialize variables
-	int tempValue = 0;
-	int MAX = 19;
-	bool swap;
-
-	// START SORT LOOP
-	while (swap == true) {
-		for(int j=0; j<MAX; j++) {
-
-			// Engage SWAP condition
-			swap = false;
-
-			// Compare number in array with neighbor
-			if (validArray[j] > validArray[j+1]) {
-				tempValue = validArray[j];
-				validArray[j] = validArray[j+1];
-				validArray[j+1] = tempValue;
-				swap = true;
-			}
-
-			// Increment MAX counter
-			MAX--;
-		}
-	}
-
-	// Navigate back to MAIN with VALID SORTED ARRAY
-	return validArray[20];
-}
-*/
 
 int main() {
 
@@ -127,11 +93,11 @@ int main() {
 					// User said yes.
 					case 'Y': case 'y':
 
-						// Inquire with user about their desired number
+						// Inquire with user about their desired array size
 						cout << "\nHow big is your array? Please enter an integer number 1-100. ";
 						cin >> n;
 
-						// Validate user's stock request.
+						// Validate user's array size request.
 						if (cin.fail() || n > 100 || n < 0) {
 
 							// Invalid Input
@@ -139,14 +105,15 @@ int main() {
 
 						}
 
+						// Valid Input
 						else {
 
 							// Qualify successful user input
 							switchStop = true;
 
 							// Setup array
-							char* arrayLetter = new char[n+1]();
-							//arrayLetter[n+1] = '\0';
+							char * arrayLetter = new char[n+1]();
+							arrayLetter[n+1] = '\0';
 
 							// Navigate to letter generator
 							for (int i=0; i<n; i++) {
@@ -158,26 +125,28 @@ int main() {
 								printf ("Random Letter: %c \n", arrayLetter[k]);
 							}
 
+
+							// Navigate to array display module
+							showArray( arrayLetter);
+
 							// Initialize Variables
 							int MAX = n;
 							char tempValue;
 
 							// Reverse array loop
-							for(int j=0; j<n; j++) {
+							for (int j = 0; j < MAX; j++) {
 
+								// Swap first and last index values
 								tempValue = arrayLetter[j];
-								arrayLetter[j] = arrayLetter[MAX];
-								cout << j << arrayLetter[j] << endl;
-								arrayLetter[MAX] = tempValue;
-								cout << j << " - " << arrayLetter[MAX];
+								arrayLetter[j] = arrayLetter[MAX-1];
+								arrayLetter[MAX-1] = tempValue;
 
+								// Decrement Top Limit
 								MAX--;
-								cout << "\n";
+
 							}
 
-							cout << "\n";
-
-							// Output array for testing purposes
+							// Output new array for testing purposes
 							for (int z=0; z<n; z++) {
 								printf ("New Order: %c \n", arrayLetter[z]);
 							}
