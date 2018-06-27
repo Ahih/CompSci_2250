@@ -47,14 +47,16 @@ int GetRandLetter (char randLetter) {
 	return randLetter;
 }
 
-// Display array
+// Display array function
 void ShowArray(char *showArray) {
 
-	for (int s=0; s<5; s++){
-		cout << "Show me the ARRAY! "<< *(showArray + s) << "\n";
+	// Print array index via pointers
+	for (int s=0; *(showArray + s) != '\0'; s++){
+		printf ("Index Value %i is %c \n", s+1, *(showArray + s));
 
 	}
 
+	//Navigate back to call statement
 	return;
 
 }
@@ -123,12 +125,14 @@ int main() {
 								arrayLetter[i] = GetRandLetter (randLetter);
 							}
 
+							/*
 							// Output array for testing purposes
 							for (int k=0; k<n; k++) {
 								printf ("Random Letter: %c \n", arrayLetter[k]);
 							}
+							*/
 
-
+							printf("\nShow me that array!\n");
 							// Navigate to array display module
 							ShowArray ( arrayLetter );
 
@@ -149,10 +153,16 @@ int main() {
 
 							}
 
+							// Navigate to array display module
+							printf("\nReverse it!\n");
+							ShowArray ( arrayLetter );
+
+							/*
 							// Output new array for testing purposes
 							for (int z=0; z<n; z++) {
 								printf ("New Order: %c \n", arrayLetter[z]);
 							}
+							*/
 
 
 						}
