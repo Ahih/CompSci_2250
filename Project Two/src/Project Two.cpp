@@ -35,6 +35,8 @@
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
+#include <utility>
 using namespace std;
 
 //Function Prototype(s)
@@ -67,31 +69,24 @@ void ShowArray(char *showArray) {
 void ReverseArray(char * reverseArray){
 
 	// Initialize variables
-	*reverseArray *= *reverseArray;
-	int MAX = 5;
+	//*reverseArray *= *reverseArray;
+	int topLimit = 0;
 	char tempValue;
 
-	// Reverse array loop
-	for (int j = 0; *(reverseArray + j) != '\0'; j++) {
+	for (int MIN = 0; *(reverseArray + MIN) != '\0'; MIN++){
+		topLimit++;
+	}
 
-
-		// FIX THIS.... NO INDEX []
-		// Have to use two for loops, one that finds the null character and then the swap mechanic
-		// Make sure to use pointers and stuff
-
-
-
-
-
-
-
-		// Swap first and last index values
-		tempValue = reverseArray[j];
-		reverseArray[j] = reverseArray[MAX-1];
-		reverseArray[MAX-1] = tempValue;
-
-		// Decrement Top Limit
-		MAX--;
+	for (int MAX = topLimit; MAX > 0 ; MAX--){
+		for (int bottomLimit = 0; bottomLimit < MAX; bottomLimit++) {
+			tempValue = *(reverseArray + bottomLimit);
+			cout << " MIN = " << *(reverseArray + bottomLimit);
+			*(reverseArray + bottomLimit) = *(reverseArray + MAX);
+			cout << " SWAP = " << *(reverseArray + bottomLimit);
+			*(reverseArray + MAX) = tempValue;
+			cout << " MAX = " << *(reverseArray + MAX);
+			cout << " TURN \n" ;
+		}
 
 	}
 
