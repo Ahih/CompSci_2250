@@ -58,7 +58,6 @@ void ShowArray(char *showArray) {
 
 	//Navigate back to call statement
 	return;
-
 }
 
 
@@ -132,8 +131,8 @@ int main() {
 							}
 							*/
 
-							printf("\nShow me that array!\n");
 							// Navigate to array display module
+							printf("\nShow me that array!\n");
 							ShowArray ( arrayLetter );
 
 							// Initialize Variables
