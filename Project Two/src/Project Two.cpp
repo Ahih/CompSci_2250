@@ -60,6 +60,28 @@ void ShowArray(char *showArray) {
 	return;
 }
 
+void ReverseArray(char *reverseArray){
+
+	// Initialize variables
+	int MAX = 5;
+	char tempValue;
+
+	// Reverse array loop
+	for (int j = 0; *(reverseArray + j) != '\0'; j++) {
+
+		// Swap first and last index values
+		tempValue = reverseArray[j];
+		reverseArray[j] = reverseArray[MAX-1];
+		reverseArray[MAX-1] = tempValue;
+
+		// Decrement Top Limit
+		MAX--;
+
+	}
+
+	//Navigate back to call statement
+	return;
+}
 
 int main() {
 
@@ -135,22 +157,8 @@ int main() {
 							printf("\nShow me that array!\n");
 							ShowArray ( arrayLetter );
 
-							// Initialize Variables
-							int MAX = n;
-							char tempValue;
-
-							// Reverse array loop
-							for (int j = 0; j < MAX; j++) {
-
-								// Swap first and last index values
-								tempValue = arrayLetter[j];
-								arrayLetter[j] = arrayLetter[MAX-1];
-								arrayLetter[MAX-1] = tempValue;
-
-								// Decrement Top Limit
-								MAX--;
-
-							}
+							//Navigate to reverse function
+							ReverseArray ( arrayLetter );
 
 							// Navigate to array display module
 							printf("\nReverse it!\n");
