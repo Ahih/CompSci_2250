@@ -30,12 +30,16 @@
           occupied by the dynamic array (using delete command).
 */
 
-
+// System Information
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+
+//Function Prototype(s)
+void ShowArray ( char *  );
+void ReverseArray ( char * );
 
 // Generate a random letter
 int GetRandLetter (char randLetter) {
@@ -60,14 +64,26 @@ void ShowArray(char *showArray) {
 	return;
 }
 
-void ReverseArray(char *reverseArray){
+void ReverseArray(char * reverseArray){
 
 	// Initialize variables
+	*reverseArray *= *reverseArray;
 	int MAX = 5;
 	char tempValue;
 
 	// Reverse array loop
 	for (int j = 0; *(reverseArray + j) != '\0'; j++) {
+
+
+		// FIX THIS.... NO INDEX []
+		// Have to use two for loops, one that finds the null character and then the swap mechanic
+		// Make sure to use pointers and stuff
+
+
+
+
+
+
 
 		// Swap first and last index values
 		tempValue = reverseArray[j];
@@ -138,7 +154,8 @@ int main() {
 							switchStop = true;
 
 							// Setup array
-							char * arrayLetter = new char[n+1]();
+							char * arrayLetter = nullptr;
+							arrayLetter = new char[n+1]();
 							arrayLetter[n+1] = '\0';
 
 							// Navigate to letter generator
@@ -158,7 +175,7 @@ int main() {
 							ShowArray ( arrayLetter );
 
 							//Navigate to reverse function
-							ReverseArray ( arrayLetter );
+							ReverseArray ( arrayLetter);
 
 							// Navigate to array display module
 							printf("\nReverse it!\n");
