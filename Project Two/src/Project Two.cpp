@@ -42,72 +42,9 @@ using namespace std;
 //Function Prototype(s)
 void ShowArray ( char *  );
 void ReverseArray ( char * );
+int GetRandLetter (char randLetter);
 
-// Generate a random letter
-int GetRandLetter (char randLetter) {
-
-	// Create random character 'a'-'z'
-	randLetter = 'a' + (rand()%26);
-
-	// Navigate back to call statement
-	return randLetter;
-}
-
-// Display array function
-void ShowArray(char *showArray) {
-
-	// Print array index via pointers
-	for (int s=0; *(showArray + s) != '\0'; s++){
-		printf ("Index Value for %i is %c \n", s+1, *(showArray + s));
-
-	}
-
-	//Navigate back to call statement
-	return;
-}
-
-void ReverseArray(char * reverseArray){
-
-	// Initialize variables
-	int topLimit = 0;
-	int swapLimit = 0;
-
-	for (int MIN = 0; *(reverseArray + MIN) != '\0'; MIN++){
-		topLimit++;
-	}
-
-	printf ("\n     TOP LIMIT = %i \n*********START*********\n", topLimit);
-
-	for (int MAX = topLimit-1; MAX >= 0 ; MAX--){
-		for (int bottomLimit = 0; *(reverseArray + bottomLimit) != '\0'; bottomLimit++) {
-			if (((topLimit-1)/2) < swapLimit){
-				printf ("     SWAP LIMIT = %i \n", swapLimit);
-				return;
-			}
-
-			else {
-				printf ("      MIN = %c ", *(reverseArray + bottomLimit));
-				printf ("      MAX = %c \n", *(reverseArray + MAX));
-				swap(*(reverseArray + bottomLimit), *(reverseArray + MAX));
-				printf ("  REV MIN = %c ", *(reverseArray + bottomLimit));
-				printf ("  REV MAX = %c\n*********SWAP*********\n", *(reverseArray + MAX)) ;
-
-
-			}
-
-			swapLimit++;
-			MAX--;
-
-		}
-
-	}
-
-
-
-	//Navigate back to call statement
-	return;
-}
-
+// MAIN PROGRAM
 int main() {
 
 	// Initialize random seed
@@ -120,20 +57,24 @@ int main() {
 	// Initialize menu variables
 	bool programStop = false;
 	bool switchStop = false;
-	char programContinue;
-
+	char programContinue = 'y';
+	int runCount = 0;
 
 	// Welcome Message
-	printf ("Welcome to Anthony's Array Reversal Shop. \n\n");
+	printf ("Welcome to Anthony's Array Reversal Shop.\n");
 
 	// BEGIN PROGRAM LOOP
 		while (!programStop) {
 
-			// Ask user if they want to use the program.
-			printf ("\nWould you like to reverse an array? ");
-			cin >> programContinue;
-			cin.ignore(10000, '\n');
-			switchStop = false;
+			// Prompt User Clause
+			if (runCount > 0) {
+
+				// Ask user if they want to use the program again.
+				printf ("\nWould you like to reverse another array? ");
+				cin >> programContinue;
+				cin.ignore(10000, '\n');
+				switchStop = false;
+			}
 
 			// Menu Loop
 			while (!switchStop) {
@@ -197,12 +138,14 @@ int main() {
 							}
 							*/
 
-
+							// Delete Array
+							delete arrayLetter;
 						}
 
 						// Leave case statement
 						cin.clear();
 						cin.ignore(10000, '\n');
+						runCount++;
 						break;
 
 					// User said no.
@@ -230,5 +173,92 @@ int main() {
 
 	// EXIT PROGRAM
 		return 0;
-
 }
+
+// Generate a random letter
+int GetRandLetter (char randLetter) {
+
+	// Create random character 'a'-'z'
+	randLetter = 'a' + (rand()%26);
+
+	// Navigate back to call statement
+	return randLetter;
+}
+
+// Display array function
+void ShowArray(char * showArray) {
+
+
+	//*(showArray + s) != '\0'
+
+	// Print array index via pointers
+	for (int s=0; s > -1; s++) {
+		for (int k=0; k < 5; k++) {
+			if (*(showArray + ((5*s)+k)) == '\0') {
+			   s = -2;
+			   k = 5;
+			}
+			else {
+
+				if ( k == 4) {
+					printf ("%c", *(showArray + ((5*s)+k)));
+				}
+
+				else {
+					printf ("%c | ", *(showArray + ((5*s)+k)));
+				}
+			}
+		}
+
+		printf ("\n");
+	}
+
+	//Navigate back to call statement
+	return;
+}
+
+// Reverse the random array
+void ReverseArray(char * reverseArray){
+
+	// Initialize variables
+	int topLimit = 0;
+	int swapLimit = 0;
+
+	// Find the top limit to the array
+	for (int MIN = 0; *(reverseArray + MIN) != '\0'; MIN++) {
+		topLimit++;
+	}
+
+	// Display top limit and start of reverse process
+	printf ("\n     TOP LIMIT = %i \n********* START *********\n", topLimit);
+
+	for (int MAX = topLimit-1; MAX >= 0 ; MAX--) {
+		for (int bottomLimit = 0; *(reverseArray + bottomLimit) != '\0'; bottomLimit++) {
+			if (((topLimit-1)/2) < swapLimit) {
+				printf ("     SWAP LIMIT = %i \n", swapLimit);
+				return;
+			}
+
+			else {
+				printf ("      MIN = %c ", *(reverseArray + bottomLimit));
+				printf ("      MAX = %c \n", *(reverseArray + MAX));
+				swap(*(reverseArray + bottomLimit), *(reverseArray + MAX));
+				printf ("  REV MIN = %c ", *(reverseArray + bottomLimit));
+				printf ("  REV MAX = %c\n********* SWAP %i *********\n", *(reverseArray + MAX), swapLimit+1) ;
+
+
+			}
+
+			swapLimit++;
+			MAX--;
+
+		}
+
+	}
+
+
+
+	//Navigate back to call statement
+	return;
+}
+
