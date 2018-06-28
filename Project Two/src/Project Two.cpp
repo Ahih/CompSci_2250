@@ -58,7 +58,7 @@ void ShowArray(char *showArray) {
 
 	// Print array index via pointers
 	for (int s=0; *(showArray + s) != '\0'; s++){
-		printf ("Index Value %i is %c \n", s+1, *(showArray + s));
+		printf ("Index Value for %i is %c \n", s+1, *(showArray + s));
 
 	}
 
@@ -69,26 +69,40 @@ void ShowArray(char *showArray) {
 void ReverseArray(char * reverseArray){
 
 	// Initialize variables
-	//*reverseArray *= *reverseArray;
 	int topLimit = 0;
-	char tempValue;
+	int swapLimit = 0;
 
 	for (int MIN = 0; *(reverseArray + MIN) != '\0'; MIN++){
 		topLimit++;
 	}
 
-	for (int MAX = topLimit; MAX > 0 ; MAX--){
-		for (int bottomLimit = 0; bottomLimit < MAX; bottomLimit++) {
-			tempValue = *(reverseArray + bottomLimit);
-			cout << " MIN = " << *(reverseArray + bottomLimit);
-			*(reverseArray + bottomLimit) = *(reverseArray + MAX);
-			cout << " SWAP = " << *(reverseArray + bottomLimit);
-			*(reverseArray + MAX) = tempValue;
-			cout << " MAX = " << *(reverseArray + MAX);
-			cout << " TURN \n" ;
+	printf ("\n     TOP LIMIT = %i \n*********START*********\n", topLimit);
+
+	for (int MAX = topLimit-1; MAX >= 0 ; MAX--){
+		for (int bottomLimit = 0; *(reverseArray + bottomLimit) != '\0'; bottomLimit++) {
+			if (((topLimit-1)/2) < swapLimit){
+				printf ("     SWAP LIMIT = %i \n", swapLimit);
+				return;
+			}
+
+			else {
+				printf ("      MIN = %c ", *(reverseArray + bottomLimit));
+				printf ("      MAX = %c \n", *(reverseArray + MAX));
+				swap(*(reverseArray + bottomLimit), *(reverseArray + MAX));
+				printf ("  REV MIN = %c ", *(reverseArray + bottomLimit));
+				printf ("  REV MAX = %c\n*********SWAP*********\n", *(reverseArray + MAX)) ;
+
+
+			}
+
+			swapLimit++;
+			MAX--;
+
 		}
 
 	}
+
+
 
 	//Navigate back to call statement
 	return;
@@ -166,14 +180,14 @@ int main() {
 							*/
 
 							// Navigate to array display module
-							printf("\nShow me that array!\n");
+							printf("\nShow me that array!\n\n");
 							ShowArray ( arrayLetter );
 
 							//Navigate to reverse function
 							ReverseArray ( arrayLetter);
 
 							// Navigate to array display module
-							printf("\nReverse it!\n");
+							printf("\nReverse it!\n\n");
 							ShowArray ( arrayLetter );
 
 							/*
@@ -218,29 +232,3 @@ int main() {
 		return 0;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
