@@ -1,3 +1,320 @@
+	bool invalidNumber = false;
+	
+
+	
+	
+	// Assign number to an array of 20 numbers
+		randArray[i] = randNumber;
+		
+		
+		
+		// Initialize variables
+	int tempValue = 0;
+	bool swap;
+
+	for(int i=1; i<=20 && swap; i++) {
+
+		swap = false;
+		for(int j=0; j<(19); j++) {
+			if (validArray[j] > validArray[j+1]) {
+				tempValue = validArray[j];
+				validArray[j] = validArray[j+1];
+				validArray[j+1] = tempValue;
+				swap = true;
+			}
+		}
+	}
+	 l + (r - l)/2;
+	
+	// User's stock request
+	for(int i=0; i<20; i++) {
+		if (userNumber == validArray[i]){
+			printf ("Yes... Yes, it looks like we have your number right here! \n");
+			printf ("It looks");
+		}
+	};
+	
+	// Validate User's Input
+	switch (userNumber) {
+
+		// VALID
+		case (userNumber >= 1 && userNumber <= 100):
+
+			
+			
+			break;
+
+		// INVALID
+		default:
+			printf ("Sorry, please enter only integer values 1-100... %d\n");
+			break;
+
+	}
+	
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+===============================================================================
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+// Generate a random number
+int GetRandNumber(int randNumber) {
+
+	// Create random number 1-100
+	randNumber = (rand()%26)+1;
+
+	// Navigate back to MAIN with valid number
+	return randNumber;
+}
+
+// Validate number
+int GetRandArray(int randNumber, int validArray[20]) {
+
+	// Initialize array for duplicate checking
+	int checkArray [100] = { };
+
+	// Array creation loop
+	for(int i=0; i<20; i++) {
+
+		// START LOOP CONDITON
+		bool validNumber = false;
+
+		// Check value for duplicates
+		while (validNumber == false) {
+
+			// Navigate to random number module
+			randNumber = GetRandNumber(randNumber);
+
+			// Testing Output for Number Generator
+			//printf ("Random Number: %d\n", randNumber);
+
+			// Bad number, START OVER
+			if (checkArray[randNumber] == 1) {
+				validNumber = false;
+			}
+
+			// Increment duplicate counter array and assign value
+			else {
+				checkArray[randNumber] = 1;
+				validArray[i] = randNumber;
+				validNumber = true;
+			}
+		}
+	}
+
+	// Navigate back to MAIN with VALID ARRAY
+	return validArray[20];
+}
+
+// Sort numbers into increasing order
+int BubbleSort (int validArray[20]) {
+
+	// Initialize variables
+	int tempValue = 0;
+	int MAX = 19;
+	bool swap;
+
+	// START SORT LOOP
+	while (swap == true) {
+		for(int j=0; j<MAX; j++) {
+
+			// Engage SWAP condition
+			swap = false;
+
+			// Compare number in array with neighbor
+			if (validArray[j] > validArray[j+1]) {
+				tempValue = validArray[j];
+				validArray[j] = validArray[j+1];
+				validArray[j+1] = tempValue;
+				swap = true;
+			}
+
+			// Increment MAX counter
+			MAX--;
+		}
+	}
+
+	// Navigate back to MAIN with VALID SORTED ARRAY
+	return validArray[20];
+}
+
+// Search array for user's number
+int BinarySearch (int validArray[20], int leftLimit, int rightLimit, int userNumber) {
+
+	// START SEARCH LOOP
+	if (rightLimit >= leftLimit) {
+
+		// Determine middle indexed value
+		int midValue = leftLimit + (rightLimit - leftLimit)/2;
+
+		// Is there number the middle index?
+		if (validArray[midValue] == userNumber){
+			return midValue;
+		}
+
+		// Is the number less than the middle index?
+		else if (validArray[midValue] > userNumber) {
+			return BinarySearch(validArray, leftLimit, midValue-1, userNumber);
+		}
+
+		// Is the number more than the middle index?
+		else if (validArray[midValue] < userNumber) {
+			return BinarySearch(validArray, midValue+1, rightLimit, userNumber);
+		}
+
+	}
+
+	// Navigate back to the MAIN with a negative search result
+	return -1;
+}
+
+
+int main() {
+
+	// Initialize random seed
+	srand (time(NULL));
+
+	// Initialize variables
+	int randNumber = 0;
+	int validArray [20] = { };
+	int arrayMAX = sizeof(validArray)/sizeof(validArray[0]);
+	int userNumber = 0;
+	int storeSearch = 0;
+	bool programStop = false;
+	bool switchStop = false;
+	char programContinue;
+
+	// Welcome Message
+	printf ("Welcome to Anthony's Number Store. \n\n");
+
+	// Navigate to the array creation module
+	validArray[20] = GetRandArray(randNumber, validArray);
+
+	/* Testing output for Random Array
+	for(int i=0; i<20; i++) {
+		printf ("Array Value of " << i << " = " << validArray[i] << "\n");
+	}; */
+
+	// Navigate to bubble sorter module
+	validArray[20] = BubbleSort(validArray);
+
+	/* Testing Output for Sorted Array
+	for(int i=0; i<20; i++) {
+		printf ("SORTED Array Value of " << i <<" = " << validArray[i] << "\n");
+	}; */
+
+	// BEGIN PROGRAM LOOP
+	while (!programStop) {
+
+		// Ask user if they want to use the program.
+		printf ("\nWould you like to search the store for a number? Please enter 'Y' or 'N'. ");
+		cin >> programContinue;
+		cin.ignore(10000, '\n');
+		switchStop = false;
+
+		// Menu Loop
+		while (!switchStop) {
+
+			// Validate user input
+			switch (programContinue) {
+
+				// User said yes.
+				case 'Y': case 'y':
+
+					// Inquire with user about their desired number
+					cout << "\nPlease enter an integer number 1-100. Let me check if it's in stock. ";
+					cin >> userNumber;
+
+					// Validate user's stock request.
+					if (cin.fail() || userNumber > 100 || userNumber < 0) {
+
+						// Invalid Input
+						printf ("\nPlease enter a valid integer between 1-100. Try again...\n");
+
+					}
+
+					else {
+						// Navigate to binary search module
+						storeSearch = BinarySearch(validArray, 0, arrayMAX-1, userNumber);
+						switchStop = true;
+
+						// Negative results
+						if (storeSearch == -1) {
+							printf ("\nSorry friend, no luck today. \n");
+						}
+
+						// Positive results
+						else {
+							printf ("\nWe do have it in stock! It's in aisle %i.\n", storeSearch+1);
+						}
+					}
+
+					// Leave case statement
+					cin.clear();
+					cin.ignore(10000, '\n');
+					break;
+
+				// User said no.
+				case 'N': case 'n':
+
+					// Farewell Message
+					printf ("\nWell then, thank you for stopping by anyway! See you soon...\n");
+					return 0;
+
+				// User failed to enter anything correct.
+				default:
+
+					// Invalid Input
+					printf ("\nPlease enter ONLY Y or N. Try again...\n");
+					switchStop = true;
+					break;
+
+			}
+		}
+	}
+
+	// EXIT PROGRAM
+	return 0;
+}
+
+// Reverse array loop
+	for (int MIN = 0; *(reverseArray + MIN) != '\0'; MIN++){
+
+		printf ("MIN Value %i is %c \n", MIN, *(reverseArray + MIN));
+
+		while ( *(reverseArray + MIN) < *(reverseArray + MAX) ) {
+
+			printf ("MAX Value %i is %c \n", MAX, *(reverseArray + MAX));
+
+
+
+			// FIX THIS.... NO INDEX []
+			// Have to use two for loops, one that finds the null character and then the swap mechanic
+			// Make sure to use pointers and stuff
+
+
+
+
+
+
+
+			// Swap first and last index values
+			//tempValue = *(reverseArray + MIN);
+			//*(reverseArray + MIN) = *(reverseArray + MAX);
+			//*(reverseArray + MAX) = tempValue;
+
+			// Decrement Top Limit
+			//MAX--;
+
+		}
+	}
+	
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 // START SORT LOOP
 	for (int i=0; i < MAX-1; i++) {
 		for (int j=0; j < MAX-i-1; j++) {
@@ -29,3 +346,247 @@
 	}
 
 	printf ("\n");
+	
+	//============================================================================
+// Name        : Project Two.cpp
+// Author      : Anthony Huber-Winkler
+// Version     : BUBBLE SORT AND BINARY SEARCH
+// Copyright   : COMP SCI Section: 2250
+// Description : SEE BELOW FOR MORE INFORMATION
+//============================================================================
+
+/*
+// Project 2:
+// Reversing a Dynamic Array of Characters**
+// Due: 6/28 (11:59PM)
+// Let us develop a C++ program with the following requirements:
+	1. The program first asks user to enter the number of elements for an array. (Number N)
+	2. It then creates a dynamic array of size N + 1, containing N random lower-case alphabet letters between ‘a’ and ‘z’. Make sure the last element is a null character ‘n0’.
+  	   a) Here, make sure to use dynamic memory allocation (using new command) to allocate memory space for the array, which is exactly why we call it a dynamic array.
+	3. After creating the array, the program displays the entire array.
+  	   a) Here, you must define and use a function showArray to display the array. This function must have the following prototype: void showArray(char *);
+  	   b) Note that it does not pass the array size as a parameter (you don’t need it when you use pointer).
+  	   c) You are NOT allowed to use array index or array bracket within this function to access elements. Instead, use pointer to do so.
+	4. Then reverse the elements of this array. Note that the original array is changed as a result.
+  	   a) Here, you must define and use a function reverseArray to reverse the array elements. This function must have the following prototype: void reverseArray(char *);
+	   b) Note that it does not pass the array size as a parameter (you don’t need it when you use pointer).
+  	   c) You are NOT allowed to use array index or array bracket within this function to access elements. Instead, use pointer to do so.
+	5. After reversing the array, call showArray function again to display the reversed array.
+	6. Ask if the user wants to continue.
+  	   a) If yes, return to Step 1.
+ 	   b) If no, terminate the program.
+       c) Before going back to Step 1 or terminating the program, make sure to release the memory space
+          occupied by the dynamic array (using delete command).
+*/
+
+// System Information
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
+#include <utility>
+using namespace std;
+
+//Function Prototype(s)
+void ShowArray ( char *  );
+void ReverseArray ( char * );
+
+// Generate a random letter
+int GetRandLetter (char randLetter) {
+
+	// Create random character 'a'-'z'
+	randLetter = 'a' + (rand()%26);
+
+	// Navigate back to call statement
+	return randLetter;
+}
+
+// Display array function
+void ShowArray(char *showArray) {
+
+	// Print array index via pointers
+	for (int s=0; *(showArray + s) != '\0'; s++){
+		printf ("Index Value for %i is %c \n", s+1, *(showArray + s));
+
+	}
+
+	//Navigate back to call statement
+	return;
+}
+
+void ReverseArray(char * reverseArray){
+
+	// Initialize variables
+	int topLimit = 0;
+	int swapLimit = 0;
+
+	for (int MIN = 0; *(reverseArray + MIN) != '\0'; MIN++){
+		topLimit++;
+	}
+
+	printf ("\n     TOP LIMIT = %i \n*********START*********\n", topLimit);
+
+	for (int MAX = topLimit-1; MAX >= 0 ; MAX--){
+		for (int bottomLimit = 0; *(reverseArray + bottomLimit) != '\0'; bottomLimit++) {
+			if (((topLimit-1)/2) < swapLimit){
+				printf ("     SWAP LIMIT = %i \n", swapLimit);
+				return;
+			}
+
+			else {
+				printf ("      MIN = %c ", *(reverseArray + bottomLimit));
+				printf ("      MAX = %c \n", *(reverseArray + MAX));
+				swap(*(reverseArray + bottomLimit), *(reverseArray + MAX));
+				printf ("  REV MIN = %c ", *(reverseArray + bottomLimit));
+				printf ("  REV MAX = %c\n*********SWAP*********\n", *(reverseArray + MAX)) ;
+
+
+			}
+
+			swapLimit++;
+			MAX--;
+
+		}
+
+	}
+
+
+
+	//Navigate back to call statement
+	return;
+}
+
+int main() {
+
+	// Initialize random seed
+	srand (time(NULL));
+
+	// Initialize variables
+	int n = 0;
+	char randLetter = 'a';
+
+	// Initialize menu variables
+	bool programStop = false;
+	bool switchStop = false;
+	char programContinue;
+
+
+	// Welcome Message
+	printf ("Welcome to Anthony's Array Reversal Shop. \n\n");
+
+	// BEGIN PROGRAM LOOP
+		while (!programStop) {
+
+			// Ask user if they want to use the program.
+			printf ("\nWould you like to reverse an array? ");
+			cin >> programContinue;
+			cin.ignore(10000, '\n');
+			switchStop = false;
+
+			// Menu Loop
+			while (!switchStop) {
+
+				// Validate user input
+				switch (programContinue) {
+
+					// User said yes.
+					case 'Y': case 'y':
+
+						// Inquire with user about their desired array size
+						cout << "\nHow big is your array? Please enter an integer number 1-100. ";
+						cin >> n;
+
+						// Validate user's array size request.
+						if (cin.fail() || n > 100 || n < 0) {
+
+							// Invalid Input
+							printf ("\nPlease enter a valid integer between 1-100. Try again...\n");
+
+						}
+
+						// Valid Input
+						else {
+
+							// Qualify successful user input
+							switchStop = true;
+
+							// Setup array
+							char * arrayLetter = nullptr;
+							arrayLetter = new char[n+1]();
+							arrayLetter[n+1] = '\0';
+
+							// Navigate to letter generator
+							for (int i=0; i<n; i++) {
+								arrayLetter[i] = GetRandLetter (randLetter);
+							}
+
+							/*
+							// Output array for testing purposes
+							for (int k=0; k<n; k++) {
+								printf ("Random Letter: %c \n", arrayLetter[k]);
+							}
+							*/
+
+							// Navigate to array display module
+							printf("\nShow me that array!\n\n");
+							ShowArray ( arrayLetter );
+
+							//Navigate to reverse function
+							ReverseArray ( arrayLetter);
+
+							// Navigate to array display module
+							printf("\nReverse it!\n\n");
+							ShowArray ( arrayLetter );
+
+							/*
+							// Output new array for testing purposes
+							for (int z=0; z<n; z++) {
+								printf ("New Order: %c \n", arrayLetter[z]);
+							}
+							*/
+
+
+						}
+
+						// Leave case statement
+						cin.clear();
+						cin.ignore(10000, '\n');
+						break;
+
+					// User said no.
+					case 'N': case 'n':
+
+						// Farewell Message
+						printf ("\nWell then, thank you for stopping by anyway! See you soon...\n");
+						return 0;
+
+					// User failed to enter anything correct.
+					default:
+
+						// Invalid Input
+						printf ("\nPlease enter ONLY Y or N. Try again...\n");
+						switchStop = true;
+						break;
+
+				}
+			}
+		}
+
+
+
+
+
+	// EXIT PROGRAM
+		return 0;
+
+}
+
+// Print array index via pointers
+	for (int s=0; *(showArray + s) != '\0'; s++){
+		printf ("Index Value for %i is %c \n", s+1, *(showArray + s));
+
+	}
+
+
+%i = %i\n", i, validArray[i]);
