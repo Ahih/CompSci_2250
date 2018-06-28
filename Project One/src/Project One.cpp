@@ -81,26 +81,18 @@ int BubbleSort (int validArray[20]) {
 
 	// Initialize variables
 	int tempValue = 0;
-	int MAX = 19;
-	bool swap;
+	int MAX = 20;
 
 	// START SORT LOOP
-	while (swap == true) {
-		for(int j=0; j<MAX; j++) {
-
-			// Engage SWAP condition
-			swap = false;
+	for (int i=0; i < MAX-1; i++) {
+		for (int j=0; j < MAX-i-1; j++) {
 
 			// Compare number in array with neighbor
 			if (validArray[j] > validArray[j+1]) {
 				tempValue = validArray[j];
 				validArray[j] = validArray[j+1];
 				validArray[j+1] = tempValue;
-				swap = true;
 			}
-
-			// Increment MAX counter
-			MAX--;
 		}
 	}
 
@@ -155,29 +147,32 @@ int main() {
 	char programContinue;
 
 	// Welcome Message
-	printf ("Welcome to Anthony's Number Store. \n\n");
+	printf ("Welcome to Anthony's Number Store. \n");
 
 	// Navigate to the array creation module
 	validArray[20] = GetRandArray(randNumber, validArray);
 
-	/* Testing output for Random Array
+	// Testing output for Random Array
+	printf ("\nRandom Array: \n");
 	for(int i=0; i<20; i++) {
-		printf ("Array Value of " << i << " = " << validArray[i] << "\n");
-	}; */
+		printf ("%i | ",validArray[i]);
+	};
 
 	// Navigate to bubble sorter module
+	printf ("\n\nPROCESSING...\n");
 	validArray[20] = BubbleSort(validArray);
 
-	/* Testing Output for Sorted Array
+	// Testing Output for Sorted Array
+	printf ("\nSorted Array: \n");
 	for(int i=0; i<20; i++) {
-		printf ("SORTED Array Value of " << i <<" = " << validArray[i] << "\n");
-	}; */
+		printf ("%i | ", validArray[i]);
+	};
 
 	// BEGIN PROGRAM LOOP
 	while (!programStop) {
 
 		// Ask user if they want to use the program.
-		printf ("\nWould you like to search the store for a number? Please enter 'Y' or 'N'. ");
+		printf ("\n\nWould you like to search the store for a number? Please enter 'Y' or 'N'. ");
 		cin >> programContinue;
 		cin.ignore(10000, '\n');
 		switchStop = false;
@@ -210,12 +205,12 @@ int main() {
 
 						// Negative results
 						if (storeSearch == -1) {
-							printf ("\nSorry friend, no luck today. \n");
+							printf ("\nSorry friend, no luck today.");
 						}
 
 						// Positive results
 						else {
-							printf ("\nWe do have it in stock! It's in aisle %i.\n", storeSearch+1);
+							printf ("\nWe do have it in stock! It's in aisle %i.", storeSearch+1);
 						}
 					}
 

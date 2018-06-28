@@ -51,16 +51,16 @@
 1. [x] The program first asks user to enter the number of elements for an array. Let’s call this number N.
 1. [x] Then creates a dynamic array of size N + 1, containing N random lowercase alphabet letters between ‘a’ and ‘z’. Make sure the last element is a null character ‘n0’.
   1) Here, make sure to use dynamic memory allocation (using new command) to allocate memory space for the array, which is exactly why we call it a dynamic array.
-1. [ ] After creating the array, the program displays the entire array.
+1. [x] After creating the array, the program displays the entire array.
   1) Here, you must define and use a function showArray to display the array. This function must have the following prototype: **void showArray(char ptr);**
   1) Note that it does not pass the array size as a parameter (you don’t need it when you use pointer).
   1) You are NOT allowed to use array index or array bracket within this function to access elements. Instead, use pointer to do so.
-1. [ ] Then reverse the elements of this array. Note that the original array is changed as a result.
+1. [x] Then reverse the elements of this array. Note that the original array is changed as a result.
   1) Here, you must define and use a function reverseArray to reverse the array elements. This function must have the following prototype: **void reverseArray(char ptr);**
   1) Note that it does not pass the array size as a parameter (you don’t need it when you use pointer).
   1) You are NOT allowed to use array index or array bracket within this function to access elements.Instead, use pointer to do so.
-1. [ ] After reversing the array, call showArray function again to display the reversed array.
-1. [ ] Ask if the user wants to continue. 
+1. [x] After reversing the array, call showArray function again to display the reversed array.
+1. [x] Ask if the user wants to continue. 
   1) If yes, return to Step 1. 
   1) If no, terminate the program. 
   1) Before going back to Step 1 or terminating the program, make sure to release the memory space occupied by the dynamic array (using delete command).  
