@@ -162,14 +162,9 @@ int main() {
 						printf ("\nPlease enter ONLY Y or N. Try again...\n");
 						switchStop = true;
 						break;
-
 				}
 			}
 		}
-
-
-
-
 
 	// EXIT PROGRAM
 		return 0;
@@ -188,32 +183,36 @@ int GetRandLetter (char randLetter) {
 // Display array function
 void ShowArray(char * showArray) {
 
-
-	//*(showArray + s) != '\0'
-
 	// Print array index via pointers
 	for (int s=0; s > -1; s++) {
 		for (int k=0; k < 5; k++) {
+
+			// IF NULL, BREAK LOOP
 			if (*(showArray + ((5*s)+k)) == '\0') {
 			   s = -2;
 			   k = 5;
 			}
+
+			// ELSE, DO LOOP
 			else {
 
+				// IF END OF LINE, DISPLAY w/o PIPE CHAR
 				if ( k == 4) {
 					printf ("%c", *(showArray + ((5*s)+k)));
 				}
 
+				// ELSE, DISPLAY w/ PIPE CHAR
 				else {
 					printf ("%c | ", *(showArray + ((5*s)+k)));
 				}
 			}
 		}
 
+		// Formating end-line
 		printf ("\n");
 	}
 
-	//Navigate back to call statement
+	// Navigate back to call statement
 	return;
 }
 
@@ -232,33 +231,32 @@ void ReverseArray(char * reverseArray){
 	// Display top limit and start of reverse process
 	printf ("\n     TOP LIMIT = %i \n********* START *********\n", topLimit);
 
+	// Begin SWAP LOOP
 	for (int MAX = topLimit-1; MAX >= 0 ; MAX--) {
 		for (int bottomLimit = 0; *(reverseArray + bottomLimit) != '\0'; bottomLimit++) {
+
+			// IF MIDDLE VALUE, BREAK LOOP
 			if (((topLimit-1)/2) < swapLimit) {
 				printf ("     SWAP LIMIT = %i \n", swapLimit);
 				return;
 			}
 
+			// ELSE, SWAP MIN & MAX
 			else {
 				printf ("      MIN = %c ", *(reverseArray + bottomLimit));
 				printf ("      MAX = %c \n", *(reverseArray + MAX));
 				swap(*(reverseArray + bottomLimit), *(reverseArray + MAX));
 				printf ("  REV MIN = %c ", *(reverseArray + bottomLimit));
 				printf ("  REV MAX = %c\n********* SWAP %i *********\n", *(reverseArray + MAX), swapLimit+1) ;
-
-
 			}
 
+			// Increment counter values
 			swapLimit++;
 			MAX--;
-
 		}
-
 	}
 
-
-
-	//Navigate back to call statement
+	// Navigate back to call statement
 	return;
 }
 
