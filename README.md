@@ -20,7 +20,7 @@
 
 ### How to submit:
 * Use Canvas Assignment Submission menu to submit the assignment electronically at Canvas.
-* Make sure to zip all your files into hw1.zip, then submit your hw1.zip as a single file.
+* Make sure to compress your entire project into a .zip, then submit the .zip as a single file.
 
 ### Policies:
 * Make sure all your C++ programs properly compile and run on Eclipse C++.
