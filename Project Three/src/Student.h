@@ -45,10 +45,13 @@
 		public:
 
 			// Setter Functions
-			void setName(string fn, string ln)
-				{ sName.firstName = fn, sName.lastName = ln; }
-			void setidNumber(int idn);
-			void setDepartment (string dpt)
+			void setName(string fn, string ln) {
+				sName.firstName = fn;
+				sName.lastName = ln;
+			}
+			void setidNumber(int idn)
+			    { idNumber = idn; }
+			void setDepartment(string dpt)
 				{ department = dpt; }
 			void setYear ( year sYear )
 				{ year[] = mYear; }
@@ -62,10 +65,6 @@
 				{ return department; }
 			enum year mYear() const;
 
-	};
-
-	void setidNumber (int idn) {
-		Student.idNumber = idn;
 	};
 
 #endif /* STUDENT_H_ */
