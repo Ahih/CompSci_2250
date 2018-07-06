@@ -78,6 +78,15 @@ using namespace std;
 
 // MAIN PROGRAM
 int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+
+	// Declare objects
+	Student student1;
+	Student student2;
+	Student student3;
+
+	student1.Student::Student_1();
+	student2.Student::Student_2();
+	student3.Student::Student_3();
+
 	return 0;
 }

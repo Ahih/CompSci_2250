@@ -44,7 +44,10 @@
 		// Public Functions
 		public:
 
-			void Attributes();
+			void Student_1();
+			void Student_2();
+			void Student_3();
+
 
 			// Setter Functions
 			void setName(string fn, string ln)

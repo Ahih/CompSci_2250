@@ -14,11 +14,11 @@
   1) The first constructor takes 4 parameters, one for each attribute,
   	  	  then initializes the attributes accordingly.
   1) The second constructor takes 2 parameters, one for name and one for idNumber,
-  	  	  then initializes those attributes accordingly.
-  	 The remaining 2 attributes are initialized as “” (empty string) and FRESHMAN, respectively.
+  	  	  then initializes those attributes accordingly. The remaining 2 attributes
+  	  	  are initialized as “” (empty string) and FRESHMAN, respectively.
   1) The third constructor is a default constructor that takes no parameters.
-  	  	  Here, the 4 attributes are initialized as “” (firstName), “” (lastName), 0 (idNumber),
-  	  	  “” (department) and FRESHMAN (year), respectively.
+  	  	  Here, the 4 attributes are initialized as “” (firstName), “” (lastName),
+  	  	  0 (idNumber), “” (department) and FRESHMAN (year), respectively.
 */
 
 // Source File Information
@@ -29,12 +29,26 @@
 #include <cstdlib>
 using namespace std;
 
-void Student::Attributes()
+void Student::Student_1(name sName, int idNumber, string department, year sYear)
 {
-	sName = {'\0', '\0'};
-	idNumber = 0;
-	department = '\0';
+	sName = {"Roger", "Federer"};
+	idNumber = 12345;
+	department = "Art";
+	sYear = SENIOR;
+}
+
+void Student::Student_2(name sName, int idNumber)
+{
+	sName = {"Rafael", "Nadal"};
+	idNumber = 56789;
+	department = " ";
 	sYear = FRESHMAN;
 }
 
-
+void Student::Student_3()
+{
+	sName = {" ", " "};
+	idNumber = 0;
+	department = " ";
+	sYear = FRESHMAN;
+}
