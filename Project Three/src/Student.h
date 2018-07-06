@@ -28,8 +28,8 @@
 	using namespace std;
 
 	// Prior Class Declaration
-	struct name { string firstName; string lastName; } name[2];
-	enum year {	FRESHMAN, SOPHOMORE, JUNIOR, SENIOR	} year[4];
+	struct name { string firstName; string lastName; };
+	enum year {	FRESHMAN, SOPHOMORE, JUNIOR, SENIOR	};
 
 	// Student Class Declaration
 	class Student {
@@ -38,18 +38,19 @@
 		private:
 			int idNumber;
 			string department;
+			year sYear;
+			name sName;
 
 		// Public Functions
 		public:
 
 			// Setter Functions
 			void setName(string fn, string ln)
-				{ name[0] = fn; name[1] = ln; }
-			void setidNumber (int idn)
-				{ idNumber = idn; }
+				{ sName.firstName = fn, sName.lastName = ln; }
+			void setidNumber(int idn);
 			void setDepartment (string dpt)
 				{ department = dpt; }
-			void setYear ( enum mYear )
+			void setYear ( year sYear )
 				{ year[] = mYear; }
 
 			// Getter Functions
@@ -61,6 +62,10 @@
 				{ return department; }
 			enum year mYear() const;
 
+	};
+
+	void setidNumber (int idn) {
+		Student.idNumber = idn;
 	};
 
 #endif /* STUDENT_H_ */
