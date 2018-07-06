@@ -44,7 +44,7 @@
 		// Public Functions
 		public:
 
-			Attributes();
+			void Attributes();
 
 			// Setter Functions
 			void setName(string fn, string ln)
