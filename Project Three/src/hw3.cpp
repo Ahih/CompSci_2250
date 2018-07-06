@@ -6,6 +6,8 @@
 // Description : SEE BELOW FOR MORE INFORMATION
 //============================================================================
 
+// hw3.cpp
+
 /*
 // Project 3:
 // Source Files and Constructors
@@ -61,6 +63,10 @@
 > Year: 1
 
 */
+
+// Source File Information
+#include "Student.h"
+#include "Student.cpp"
 
 // System Information
 #include <iostream>
