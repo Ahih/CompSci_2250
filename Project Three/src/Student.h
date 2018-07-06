@@ -44,6 +44,8 @@
 		// Public Functions
 		public:
 
+			Attributes();
+
 			// Setter Functions
 			void setName(string fn, string ln)
 				{ sName.firstName = fn; sName.lastName = ln; }

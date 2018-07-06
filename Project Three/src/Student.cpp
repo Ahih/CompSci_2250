@@ -26,6 +26,13 @@
 
 // System Information
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
-
+Student::Attributes()
+{
+	sName = {'\0', '\0'};
+	idNumber = 0;
+	department = '\0';
+	sYear = 0;
+}
