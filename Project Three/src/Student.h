@@ -55,8 +55,8 @@
 				{ sYear = yr; }
 
 			// Getter Functions
-			name getName() const
-				{ return sName; }
+			string getName() const
+				{ return sName.firstName + ' ' + sName.lastName; }
 			int getidNumber() const
 				{ return idNumber; }
 			string getDepartment() const
