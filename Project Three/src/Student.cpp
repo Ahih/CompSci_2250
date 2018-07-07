@@ -26,32 +26,39 @@
 
 // System Information
 #include <iostream>
-#include <cstdlib>
 using namespace std;
 
-Student::s1(name sName, int idNumber, string department, year sYear)
-{
+Student::Student1(name studentName, int idN, string dpt, year yr){
+	sName = studentName;
+	idNumber = idN;
+	department = dpt;
+	sYear = yr;
+}
+
+Student::Student2(name studentName, int idN){
+	sName = studentName;
+	idNumber = idN;
+}
+
+Student::Student3(){
+}
+
+/*
+ * cout << "STUDENT 1" << endl;
 	sName = {"Roger", "Federer"};
 	idNumber = 12345;
 	department = "Art";
 	sYear = SENIOR;
-}
-
-Student::s2(name sName, int idNumber)
-{
+ *
+ * cout << "STUDENT s" << endl;
 	sName = {"Rafael", "Nadal"};
 	idNumber = 56789;
-	Student.department = " ";
-	Student.sYear = FRESHMAN;
-}
-
-Student::s3()
-{
+	department = " ";
+	sYear = FRESHMAN;
+ *
+ * cout << "STUDENT 3" << endl;
 	sName = {" ", " "};
 	idNumber = 0;
 	department = " ";
 	sYear = FRESHMAN;
-}
-
-
-
+ */

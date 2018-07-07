@@ -44,35 +44,34 @@
 		// Public Functions
 		public:
 
-			Student s1(name sName, int idNumber, string department, year sYear);
-			//~Student_1();
-			Student s2(name sName, int idNumber);
-			//~Student_2();
-			Student s3();
-			//~Student_3();
+			//Student(name sName, int idNumber, string department, year sYear);
+			Student1(name sName, int idNumber, string department, year sYear);
+			Student2(name sName, int idNumber);
+			Student3();
 
 
 			// Setter Functions
-			void setName(string fn, string ln)
-				{ sName.firstName = fn; sName.lastName = ln; }
-			void setidNumber(int idn)
-			    { idNumber = idn; }
-			void setDepartment(string dpt)
-				{ department = dpt; }
-			void setYear ( year yr )
-				{ sYear = yr; }
+			void setName(name studentName) { sName = studentName; }
+			void setidNumber(int idN) { idNumber = idN; }
+			void setDepartment(string dpt) { department = dpt; }
+			void setYear(year yr) { sYear = yr; }
 
 			// Getter Functions
-			string getName() const
-				{ return sName.firstName + ' ' + sName.lastName; }
-			int getidNumber() const
-				{ return idNumber; }
-			string getDepartment() const
-				{ return department; }
-			year getYear() const
-				{ return sYear; }
+			string getName() const { return sName.firstName + ' ' + sName.lastName; }
+			int getidNumber() const { return idNumber; }
+			string getDepartment() const { return department; }
+			year getYear() const { return sYear; }
 
 	};
+
+
+
+
+
+
+
+
+
 
 // END Header File Definition
 #endif /* STUDENT_H_ */

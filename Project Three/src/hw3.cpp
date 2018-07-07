@@ -83,13 +83,12 @@ int main() {
 	Student student2;
 	Student student3;
 
-	//student1.sName, student1.idNumber, student1.department, student1.sYear;
-	//student2.sName, student2.idNumber, student2.department, student2.sYear;
-	//student3.sName, student3.idNumber, student3.department, student3.sYear;
+	student2.setDepartment(string dpt);
 
-	student1.s1();
-	student2.s2();
-	student3.s3();
+
+	//student1.displayStudent();
+	//student2.displayStudent();
+	//student3.displayStudent();
 
 	return 0;
 }
