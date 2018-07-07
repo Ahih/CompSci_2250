@@ -80,8 +80,8 @@ int main() {
 
 	// Declare objects
 	Student student1(name studentName, int idN, string dpt, year yr);
-	Student student2(name studentName, int idN, string dpt, year yr);
-	Student student3(name studentName, int idN, string dpt, year yr);
+	Student student2(name studentName, int idN);
+	Student student3();
 
 
 

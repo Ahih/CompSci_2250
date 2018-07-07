@@ -45,9 +45,12 @@
 		public:
 
 			// Constructor
-			Student(name sName, int idNumber, string department, year sYear);
-			Student(name sName, int idNumber);
-			Student();
+			Student(name studentName, int idN, string dpt, year yr) {
+				sName = studentName;
+				idNumber = idN;
+				department = dpt;
+				sYear = yr;
+			}
 
 			// Setter Functions
 			void setName(name studentName) { sName = studentName; }
