@@ -44,11 +44,10 @@
 		// Public Functions
 		public:
 
-			//Student(name sName, int idNumber, string department, year sYear);
-			Student1(name sName, int idNumber, string department, year sYear);
-			Student2(name sName, int idNumber);
-			Student3();
-
+			// Constructor
+			Student(name sName, int idNumber, string department, year sYear);
+			Student(name sName, int idNumber);
+			Student();
 
 			// Setter Functions
 			void setName(name studentName) { sName = studentName; }
@@ -63,15 +62,6 @@
 			year getYear() const { return sYear; }
 
 	};
-
-
-
-
-
-
-
-
-
 
 // END Header File Definition
 #endif /* STUDENT_H_ */

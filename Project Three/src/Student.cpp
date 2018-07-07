@@ -26,21 +26,28 @@
 
 // System Information
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
-Student::Student1(name studentName, int idN, string dpt, year yr){
+Student::Student(name studentName, int idN, string dpt, year yr){
+	name studentName = {"Roger", "Federer"};
+	int idN = 12345;
+	string dpt = "Art";
+	year yr = SENIOR;
+}
+
+Student::Student(name studentName = {"Rafael", "Nadal"}, int idN = 56789, string dpt = " ", year yr = FRESHMAN){
 	sName = studentName;
 	idNumber = idN;
 	department = dpt;
 	sYear = yr;
 }
 
-Student::Student2(name studentName, int idN){
+Student::Student(name studentName = {" ", " "}, int idN = 0, string dpt = " ", year yr = FRESHMAN){
 	sName = studentName;
 	idNumber = idN;
-}
-
-Student::Student3(){
+	department = dpt;
+	sYear = yr;
 }
 
 /*
@@ -61,4 +68,9 @@ Student::Student3(){
 	idNumber = 0;
 	department = " ";
 	sYear = FRESHMAN;
+
+	sName = studentName;
+	idNumber = idN;
+	department = dpt;
+	sYear = yr;
  */
