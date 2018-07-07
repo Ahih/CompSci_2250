@@ -44,9 +44,12 @@
 		// Public Functions
 		public:
 
-			void Student_1();
-			void Student_2();
-			void Student_3();
+			Student s1(name sName, int idNumber, string department, year sYear);
+			//~Student_1();
+			Student s2(name sName, int idNumber);
+			//~Student_2();
+			Student s3();
+			//~Student_3();
 
 
 			// Setter Functions

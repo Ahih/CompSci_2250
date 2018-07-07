@@ -66,7 +66,6 @@
 
 // Source File Information
 #include "Student.h"
-#include "Student.cpp"
 
 // System Information
 #include <iostream>
@@ -84,9 +83,13 @@ int main() {
 	Student student2;
 	Student student3;
 
-	student1.Student::Student_1();
-	student2.Student::Student_2();
-	student3.Student::Student_3();
+	//student1.sName, student1.idNumber, student1.department, student1.sYear;
+	//student2.sName, student2.idNumber, student2.department, student2.sYear;
+	//student3.sName, student3.idNumber, student3.department, student3.sYear;
+
+	student1.s1();
+	student2.s2();
+	student3.s3();
 
 	return 0;
 }

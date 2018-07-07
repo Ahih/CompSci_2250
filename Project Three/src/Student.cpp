@@ -29,7 +29,7 @@
 #include <cstdlib>
 using namespace std;
 
-void Student::Student_1(name sName, int idNumber, string department, year sYear)
+Student::s1(name sName, int idNumber, string department, year sYear)
 {
 	sName = {"Roger", "Federer"};
 	idNumber = 12345;
@@ -37,18 +37,21 @@ void Student::Student_1(name sName, int idNumber, string department, year sYear)
 	sYear = SENIOR;
 }
 
-void Student::Student_2(name sName, int idNumber)
+Student::s2(name sName, int idNumber)
 {
 	sName = {"Rafael", "Nadal"};
 	idNumber = 56789;
-	department = " ";
-	sYear = FRESHMAN;
+	Student.department = " ";
+	Student.sYear = FRESHMAN;
 }
 
-void Student::Student_3()
+Student::s3()
 {
 	sName = {" ", " "};
 	idNumber = 0;
 	department = " ";
 	sYear = FRESHMAN;
 }
+
+
+
