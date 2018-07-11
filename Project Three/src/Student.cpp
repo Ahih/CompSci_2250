@@ -29,46 +29,23 @@
 #include <cstdlib>
 using namespace std;
 
-Student::Student(name studentName, int idN, string dpt, year yr) {
-	studentName = {"Roger", "Federer"};
-	idN = 12345;
-	dpt = "Art";
-	yr = SENIOR;
-}
-
-Student::Student(name studentName, int idN) {
-	studentName = {"Rafael", "Nadal"};
-	idN = 56789;
-
-Student::Student( ) {
-	studentName = {" ", " "};
-	idN = 0;
-	dpt = " ";
-	yr = FRESHMAN;
-}
-
-
-/*
- * cout << "STUDENT 1" << endl;
-	sName = {"Roger", "Federer"};
-	idNumber = 12345;
-	department = "Art";
-	sYear = SENIOR;
- *
- * cout << "STUDENT s" << endl;
-	sName = {"Rafael", "Nadal"};
-	idNumber = 56789;
-	department = " ";
-	sYear = FRESHMAN;
- *
- * cout << "STUDENT 3" << endl;
-	sName = {" ", " "};
-	idNumber = 0;
-	department = " ";
-	sYear = FRESHMAN;
-
-	sName = studentName;
+Student::Student(Name studentName, int idN, string dpt, Year yr) {
+	name = studentName;
 	idNumber = idN;
 	department = dpt;
-	sYear = yr;
- */
+	year = yr;
+}
+
+Student::Student(Name studentName, int idN) {
+	name = studentName;
+	idNumber = idN;
+	department = " ";
+	year = FRESHMAN;
+}
+
+Student::Student() {
+	name = {" ", " "};
+	idNumber = 0;
+	department = " ";
+	year = FRESHMAN;
+}

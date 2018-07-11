@@ -74,20 +74,35 @@
 using namespace std;
 
 //Function Prototype(s)
+void displayStudent(Student student) {
+	cout << "Name: " << student.getName() << endl;
+	cout << "ID Number: " << student.getidNumber() << endl;
+	cout << "Department: " << student.getDepartment() << endl;
+	cout << "Year: " << student.getYear() << endl;
+}
 
 // MAIN PROGRAM
 int main() {
 
 	// Declare objects
-	Student student1(name studentName, int idN, string dpt, year yr);
-	Student student2(name studentName, int idN);
-	Student student3();
+	//Student student1(studentName, int idN, string dpt, Year yr);
+	//Student student2(studentName, int idN);
+	Student student3;
 
+	// Set Information Object 2
+	student3.setDepartment("Computer Science");
+	student3.setYear(JUNIOR);
 
+	// Set Information Object 3
+	student3.setName("A", "B");
+	student3.setidNumber(13579);
+	student3.setDepartment("Physics");
+	student3.setYear(FRESHMAN);
 
-	//student1.displayStudent();
-	//student2.displayStudent();
-	//student3.displayStudent();
+	//displayStudent(student1);
+	//displayStudent(student2);
+	displayStudent(student3);
 
 	return 0;
 }
+

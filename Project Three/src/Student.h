@@ -28,41 +28,41 @@
 	using namespace std;
 
 	// Prior Class Declaration
-	struct name { string firstName; string lastName; };
-	enum year {	FRESHMAN, SOPHOMORE, JUNIOR, SENIOR	};
+	struct Name { string firstName; string lastName; };
+	enum Year {	FRESHMAN, SOPHOMORE, JUNIOR, SENIOR	};
 
 	// Student Class Declaration
 	class Student {
 
 		// Private Variables
 		private:
-			name sName;
+			Name name;
 			int idNumber;
 			string department;
-			year sYear;
+			Year year;
 
 		// Public Functions
 		public:
 
-			// Constructor
-			Student(name studentName, int idN, string dpt, year yr) {
-				sName = studentName;
-				idNumber = idN;
-				department = dpt;
-				sYear = yr;
-			}
+			// Constructors
+			Student(Name studentName, int idN, string dpt, Year yr);
+			Student(Name studentName, int idN);
+			Student();
 
 			// Setter Functions
-			void setName(name studentName) { sName = studentName; }
+			void setName(string firstName, string lastName) {
+				name.firstName = firstName;
+				name.lastName = lastName;
+			}
 			void setidNumber(int idN) { idNumber = idN; }
 			void setDepartment(string dpt) { department = dpt; }
-			void setYear(year yr) { sYear = yr; }
+			void setYear(Year yr) { year = yr; }
 
 			// Getter Functions
-			string getName() const { return sName.firstName + ' ' + sName.lastName; }
-			int getidNumber() const { return idNumber; }
-			string getDepartment() const { return department; }
-			year getYear() const { return sYear; }
+			string getName() { return name.firstName + ' ' + name.lastName; }
+			int getidNumber() { return idNumber; }
+			string getDepartment() { return department; }
+			Year getYear() { return year; }
 
 	};
 
