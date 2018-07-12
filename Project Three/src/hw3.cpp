@@ -13,7 +13,7 @@
 // Source Files and Constructors
 // Due: 7/6 (11:59PM)
 // Let us develop a C++ program with the following requirements between three files:
- *
+
 1. [ ] Student.h
   1) In this file, you declare a class named Student.
   1) This class contains 4 private attributes, name, idNumber, department, and year.
@@ -100,6 +100,7 @@ int main() {
 	student3.setDepartment("Physics");
 	student3.setYear(FRESHMAN);
 
+	// Run Display Function
 	displayStudent(student1);
 	displayStudent(student2);
 	displayStudent(student3);
