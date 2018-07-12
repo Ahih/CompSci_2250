@@ -590,3 +590,68 @@ int main() {
 
 
 %i = %i\n", i, validArray[i]);
+
+***********************************************************************************************
+*************************************************************************************************
+**********************************************************************************************
+***********************************************************************************************
+8************************************************************************************************
+
+Student::s1(name sName, int idNumber, string department, year sYear)
+{
+	sName = {"Roger", "Federer"};
+	idNumber = 12345;
+	department = "Art";
+	sYear = SENIOR;
+}
+
+Student::s2(name sName, int idNumber)
+{
+	sName = {"Rafael", "Nadal"};
+	idNumber = 56789;
+	Student.department = " ";
+	Student.sYear = FRESHMAN;
+}
+
+Student::s3()
+{
+	sName = {" ", " "};
+	idNumber = 0;
+	department = " ";
+	sYear = FRESHMAN;
+}
+
+//Student s1(name sName, int idNumber, string department, year sYear);
+			//~Student_1();
+			//Student s2(name sName, int idNumber);
+			//~Student_2();
+			//Student s3();
+			//~Student_3();
+
+	//student1.sName, student1.idNumber, student1.department, student1.sYear;
+	//student2.sName, student2.idNumber, student2.department, student2.sYear;
+	//student3.sName, student3.idNumber, student3.department, student3.sYear;
+
+	student1.s1();
+	student2.s2();
+	student3.s3();
+
+// Setter Functions
+			void setName(string fn, string ln)
+				{ sName.firstName = fn; sName.lastName = ln; }
+			void setidNumber(int idn)
+			    { idNumber = idn; }
+			void setDepartment(string dpt)
+				{ department = dpt; }
+			void setYear ( year yr )
+				{ sYear = yr; }
+
+			// Getter Functions
+			string getName() const
+				{ return sName.firstName + ' ' + sName.lastName; }
+			int getidNumber() const
+				{ return idNumber; }
+			string getDepartment() const
+				{ return department; }
+			year getYear() const
+				{ return sYear; }

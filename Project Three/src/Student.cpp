@@ -30,15 +30,15 @@
 using namespace std;
 
 Student::Student(Name studentName, int idN, string dpt, Year yr) {
-	name = studentName;
-	idNumber = idN;
-	department = dpt;
-	year = yr;
+	name = {"Roger", "Federer"};
+	idNumber = 12345;
+	department = "Art";
+	year = SENIOR;
 }
 
 Student::Student(Name studentName, int idN) {
-	name = studentName;
-	idNumber = idN;
+	name = {"Rafael", "Nadal"};
+	idNumber = 56789;
 	department = " ";
 	year = FRESHMAN;
 }

@@ -78,29 +78,30 @@ void displayStudent(Student student) {
 	cout << "Name: " << student.getName() << endl;
 	cout << "ID Number: " << student.getidNumber() << endl;
 	cout << "Department: " << student.getDepartment() << endl;
-	cout << "Year: " << student.getYear() << endl;
+	cout << "Year: " << (student.getYear()) + 1 << endl;
+	cout << endl;
 }
 
 // MAIN PROGRAM
 int main() {
 
 	// Declare objects
-	//Student student1(studentName, int idN, string dpt, Year yr);
-	//Student student2(studentName, int idN);
+	Student student1 (Name, int, string, Year);
+	Student student2 (string dpt, Year year);
 	Student student3;
 
 	// Set Information Object 2
-	student3.setDepartment("Computer Science");
-	student3.setYear(JUNIOR);
+	student2.setDepartment("Computer Science");
+	student2.setYear(JUNIOR);
 
 	// Set Information Object 3
-	student3.setName("A", "B");
+	student3.setName("Novak", "Djokovic");
 	student3.setidNumber(13579);
 	student3.setDepartment("Physics");
 	student3.setYear(FRESHMAN);
 
-	//displayStudent(student1);
-	//displayStudent(student2);
+	displayStudent(student1);
+	displayStudent(student2);
 	displayStudent(student3);
 
 	return 0;
