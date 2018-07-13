@@ -33,17 +33,23 @@
 	// Student Class Declaration
 	class MyString {
 
+		// Private Variables
+		private:
+			char* str;
+			int size;
+			static int strCount;
+
 		// Public Functions
 		public:
 
-			// Constructor
+			// Constructors
+			MyString(string);
 			MyString();
+			MyString(const MyString &obj2);
+			~MyString();
+			MyString operator= (MyString const &obj);
+			MyString operator+= (MyString const &obj);
 
-
-
-
-			// Increment strCount
-			//strCount++;
 
 			// Setter Functions
 			void setSTR(char* mstr) { str = mstr; }
@@ -54,11 +60,7 @@
 			int getSIZE() { return strCount; }
 			static int getSTRCOUNT() { return strCount; }
 
-		// Private Variables
-		private:
-			char* str;
-			int size;
-			static int strCount;
+			void displayString(MyString &obj);
 
 	};
 

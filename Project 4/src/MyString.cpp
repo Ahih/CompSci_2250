@@ -45,21 +45,92 @@
 // System Information
 #include <iostream>
 #include <cstdlib>
+#include <cstring>
 using namespace std;
 
-MyString::MyString()
+// Constructor 1
+MyString::MyString(string stringInput)
 {
+	// Set Size of String Input
+	size = stringInput.length();
 
+	// Create Dynamic Array
+	str = new char[size + 1];
+
+	// Copy StringInput
+	stringInput.copy(str, size, 0);
+
+	// Increment strCount
+	strCount++;
 }
 
+// Constructor 2
+MyString::MyString()
+{
+	// Initialize Variables
+	str = '\0';
+	size = 0;
 
+	// Increment strCount
+	strCount++;
+}
 
+// Constructor 3
+MyString::MyString(const MyString &s2)
+{
+	// Copy Variables
+	str = s2.str;
+	size = s2.size;
 
+	// Increment strCount
+	strCount++;
+}
 
+// Destructor
+MyString::~MyString()
+{
+	// Releases of Dynamic Array
+	delete []str;
 
+	// Increment strCount
+	strCount--;
+}
 
+// Display Function
+void displayString(MyString &obj) {
+	cout << "==============";
+	cout << "Array: " << obj.getSTR() << endl;
+	cout << "Length: " << obj.getSIZE() << endl;
+	cout << "Count: " << obj.getSTRCOUNT() << endl;
+	cout << "==============";
+	cout << endl;
+}
 
+// Operator '='
+MyString MyString::operator= (MyString const &obj) {
 
+	MyString s3;
+	s3.str = obj.str;
+	s3.size = obj.size;
+	return s3;
+}
+
+// Operator '+='
+MyString MyString::operator+= (MyString const &obj) {
+
+	MyString s4;
+	s4.size += obj.size;
+
+	char * newArray = new char [s4.size];
+
+	strcpy(newArray, str);
+	strcpy(newArray, obj.str);
+
+	s4.str = newArray;
+	delete [] newArray;
+
+	return s4;
+}
 
 
 

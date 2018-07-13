@@ -76,44 +76,26 @@
 #include <cstdlib>
 using namespace std;
 
-//Function Prototype(s)
-void displayString(MyString MyString) {
-	//cout << "Name: " << student.getName() << endl;
-	//cout << "ID Number: " << student.getidNumber() << endl;
-	//cout << "Department: " << student.getDepartment() << endl;
-	//cout << "Year: " << (student.getYear()) + 1 << endl;
-	//cout << endl;
-}
-
 // Initialize static member
 int MyString::strCount = 0;
 
 // MAIN Program
 int main() {
 
-	// Declare objects
-	MyString mystring1;
-	MyString mystring2;
-	MyString mystring3;
+	MyString s1("abc");
 
-	// Set Information Object 1
-	//student2.setDepartment("Computer Science");
-	//student2.setYear(JUNIOR);
+	// FIRST TEST
+	MyString::displayString(s1);
 
-	// Set Information Object 2
-	//student2.setDepartment("Computer Science");
-	//student2.setYear(JUNIOR);
+	// SECOND TEST
+	//s1();
+	//displayString(s1);
 
-	// Set Information Object 3
-	//student3.setName("Novak", "Djokovic");
-	//student3.setidNumber(13579);
-	//student3.setDepartment("Physics");
-	//student3.setYear(FRESHMAN);
+	// THIRD TEST
+	//MyString s2 = s1;
 
-	// Run Display Function
-	displayString(mystring1);
-	displayString(mystring2);
-	displayString(mystring3);
 
 	return 0;
 }
+
+
