@@ -77,14 +77,24 @@
 using namespace std;
 
 //Function Prototype(s)
+void displayString(MyString MyString) {
+	//cout << "Name: " << student.getName() << endl;
+	//cout << "ID Number: " << student.getidNumber() << endl;
+	//cout << "Department: " << student.getDepartment() << endl;
+	//cout << "Year: " << (student.getYear()) + 1 << endl;
+	//cout << endl;
+}
 
 // Initialize static member
+int MyString::strCount = 0;
 
 // MAIN Program
 int main() {
 
 	// Declare objects
-	//Student student3;
+	MyString mystring1;
+	MyString mystring2;
+	MyString mystring3;
 
 	// Set Information Object 1
 	//student2.setDepartment("Computer Science");
@@ -100,9 +110,10 @@ int main() {
 	//student3.setDepartment("Physics");
 	//student3.setYear(FRESHMAN);
 
-	//displayStudent(student1);
-	//displayStudent(student2);
-	//displayStudent(student3);
+	// Run Display Function
+	displayString(mystring1);
+	displayString(mystring2);
+	displayString(mystring3);
 
 	return 0;
 }

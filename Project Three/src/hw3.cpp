@@ -66,6 +66,7 @@
 
 // Source File Information
 #include "Student.h"
+#include "Student.cpp"
 
 // System Information
 #include <iostream>
@@ -86,11 +87,14 @@ void displayStudent(Student student) {
 int main() {
 
 	// Declare objects
-	Student student1 (Name, int, string, Year);
-	Student student2 (string dpt, Year year);
+	Student student1;
+	Student student2;
 	Student student3;
 
+
 	// Set Information Object 2
+	student2.setName("Balls", "Hmmm");
+	student2.setidNumber(13579);
 	student2.setDepartment("Computer Science");
 	student2.setYear(JUNIOR);
 

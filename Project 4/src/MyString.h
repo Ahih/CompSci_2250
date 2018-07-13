@@ -33,34 +33,32 @@
 	// Student Class Declaration
 	class MyString {
 
+		// Public Functions
+		public:
+
+			// Constructor
+			MyString();
+
+
+
+
+			// Increment strCount
+			//strCount++;
+
+			// Setter Functions
+			void setSTR(char* mstr) { str = mstr; }
+			void setSIZE(int msize) { size = msize; }
+
+			// Getter Functions
+			char* getSTR() { return str; }
+			int getSIZE() { return strCount; }
+			static int getSTRCOUNT() { return strCount; }
+
 		// Private Variables
 		private:
 			char* str;
 			int size;
 			static int strCount;
-
-		// Public Functions
-		public:
-
-			// Constructors
-			//Student(Name studentName, int idN, string dpt, Year yr);
-			//Student(Name studentName, int idN);
-			//Student();
-
-			// Setter Functions
-			void setStr(string n) {
-				name.firstName = firstName;
-				name.lastName = lastName;
-			}
-			void setidNumber(int idN) { idNumber = idN; }
-			void setDepartment(string dpt) { department = dpt; }
-			void setYear(Year yr) { year = yr; }
-
-			// Getter Functions
-			string getName() { return name.firstName + ' ' + name.lastName; }
-			int getidNumber() { return idNumber; }
-			string getDepartment() { return department; }
-			Year getYear() { return year; }
 
 	};
 

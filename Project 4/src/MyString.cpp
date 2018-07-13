@@ -47,24 +47,38 @@
 #include <cstdlib>
 using namespace std;
 
-Student::Student(Name studentName, int idN, string dpt, Year yr) {
-	name = {"Roger", "Federer"};
-	idNumber = 12345;
-	department = "Art";
-	year = SENIOR;
+MyString::MyString()
+{
+
 }
 
-Student::Student(Name studentName, int idN) {
-	name = {"Rafael", "Nadal"};
-	idNumber = 56789;
-	department = " ";
-	year = FRESHMAN;
-}
 
-Student::Student() {
-	name = {" ", " "};
-	idNumber = 0;
-	department = " ";
-	year = FRESHMAN;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

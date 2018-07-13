@@ -29,11 +29,11 @@
 #include <cstdlib>
 using namespace std;
 
-Student::Student(Name studentName, int idN, string dpt, Year yr) {
-	name = {"Roger", "Federer"};
-	idNumber = 12345;
-	department = "Art";
-	year = SENIOR;
+Student::Student(Name studentName, int idN = 12345, string dpt = "Art", Year yr = SENIOR) {
+	name = studentName;
+	idNumber = idN;
+	department = dpt;
+	year = yr;
 }
 
 Student::Student(Name studentName, int idN) {
@@ -49,3 +49,11 @@ Student::Student() {
 	department = " ";
 	year = FRESHMAN;
 }
+
+/*
+ * name = {"Roger", "Federer"};
+	idNumber = 12345;
+	department = "Art";
+	year = SENIOR;
+ *
+ */
