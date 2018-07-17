@@ -1,28 +1,28 @@
 //============================================================================
-// Name        : Project 4.cpp
+// Name        : Project 5.cpp
 // Author      : Anthony Huber-Winkler
-// Version     : More "CLASS" Work
+// Version     : Linked Lists
 // Copyright   : COMP SCI Section: 2250
 // Description : SEE BELOW FOR MORE INFORMATION
 //============================================================================
 
-// MyString.h
+// StringList.h
 
 /*
-1. [ ] MyString.h
-  1) In this file, you declare a class named MyString.
-  1) This class contains 3 private attributes, str, size, and strCount.
-  1) str is a char* that points to a dynamic array of characters.
-  1) size is an integer that contains the current size of the string.
-  1) strCount is a static member variable that keeps track of the number of MyString
-		objects that currently exist in memory. Its value is initially 0 before any MyString object is created.
-  1) Define public getters and setters for the 2 instance variables, as well as a getter for the static variable.
+ 1. [ ] StringList.h
+  1) In this file, you declare a class named StringList.
+  1) StringList is a modified version of NumberList class (Chapter 17), that is designed to store C++ strings in a linked list.
+  1) Therefore, each node must store a string, not a number.
+  1) The node structure must be declared within class, and a private attribute head points to the starting node.
+  1) The class provides a default constructor that creates an empty linked list, and a destructor that releases all the nodes.
+  1) The class also provides public member functions for inserting and deleting a node (see below for details).
+  1) It also provides a public member function for displaying the list.
 
 */
 
 // Header File Information
-#ifndef MYSTRING_H_
-#define MYSTRING_H_
+#ifndef STRINGLIST_H_
+#define STRINGLIST_H_
 
 	// System Information
 	#include <iostream>
@@ -77,4 +77,7 @@
 	};
 
 // END Header File Definition
-#endif /* MYSTRING_H_ */
+
+
+
+#endif /* STRINGLIST_H_ */

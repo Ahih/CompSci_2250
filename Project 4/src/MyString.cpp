@@ -48,42 +48,62 @@
 #include <cstring>
 using namespace std;
 
+
 // Constructor 1
 MyString::MyString(string stringInput)
 {
 	// Set Size of String Input
-	size = stringInput.length();
+	setSIZE(stringInput.size());
 
 	// Create Dynamic Array
-	str = new char[size + 1];
-
-	// Copy StringInput
-	stringInput.copy(str, size, 0);
+	setSTR(stringInput);
 
 	// Increment strCount
 	strCount++;
+
+	cout << "==== CONSTRUCT 1 =====" << endl;
+	cout << "STR: " << getSTR() << endl;
+	cout << "SIZE: " << getSIZE() << endl;
+	cout << "STRCOUNT: " << getSTRCOUNT() << endl;
+	cout << "======================" << endl;
+	cout << endl;
+
 }
 
 // Constructor 2
 MyString::MyString()
 {
 	// Initialize Variables
-	str = '\0';
+	str = NULL;
 	size = 0;
 
 	// Increment strCount
 	strCount++;
+
+	cout << "==== CONSTRUCT 2 =====" << endl;
+	cout << "STR: " << getSTR() << endl;
+	cout << "SIZE: " << getSIZE() << endl;
+	cout << "STRCOUNT: " << getSTRCOUNT() << endl;
+	cout << "======================" << endl;
+	cout << endl;
 }
 
 // Constructor 3
 MyString::MyString(const MyString &s2)
 {
 	// Copy Variables
-	str = s2.str;
-	size = s2.size;
+	setSTR(s2.str);
+	setSIZE(s2.size);
 
 	// Increment strCount
 	strCount++;
+
+	cout << "==== CONSTRUCT 3 =====" << endl;
+	cout << "STR: " << getSTR() << endl;
+	cout << "SIZE: " << getSIZE() << endl;
+	cout << "STRCOUNT: " << getSTRCOUNT() << endl;
+	cout << "======================" << endl;
+	cout << endl;
 }
 
 // Destructor
@@ -94,17 +114,14 @@ MyString::~MyString()
 
 	// Increment strCount
 	strCount--;
-}
 
-// Display Function
-void displayString(MyString &obj) {
-	cout << "==============";
-	cout << "Array: " << obj.getSTR() << endl;
-	cout << "Length: " << obj.getSIZE() << endl;
-	cout << "Count: " << obj.getSTRCOUNT() << endl;
-	cout << "==============";
+	cout << "======================" << endl;
+	cout << "=== DECONSTRUCTED ====" << endl;
+	cout << "======================" << endl;
 	cout << endl;
 }
+
+
 
 // Operator '='
 MyString MyString::operator= (MyString const &obj) {
@@ -132,11 +149,29 @@ MyString MyString::operator+= (MyString const &obj) {
 	return s4;
 }
 
+/*
+	cout << "======= CONSTRUCT 1 =======" << endl;
+	cout << "STR: " << getSTR() << endl;
+	cout << "SIZE: " << getSIZE() << endl;
+	cout << "STRCOUNT: " << getSTRCOUNT() << endl;
+	cout << "===========================";
+	cout << endl;
 
+	cout << "======= CONSTRUCT 2 =======" << endl;
+	cout << "STR: " << getSTR() << endl;
+	cout << "SIZE: " << getSIZE() << endl;
+	cout << "STRCOUNT: " << getSTRCOUNT() << endl;
+	cout << "===========================";
+	cout << endl;
 
+	cout << "======= CONSTRUCT 3 =======" << endl;
+	cout << "STR: " << getSTR() << endl;
+	cout << "SIZE: " << getSIZE() << endl;
+	cout << "STRCOUNT: " << getSTRCOUNT() << endl;
+	cout << "===========================";
+	cout << endl;
 
-
-
+*/
 
 
 

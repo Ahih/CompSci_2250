@@ -82,14 +82,17 @@ int MyString::strCount = 0;
 // MAIN Program
 int main() {
 
-	MyString s1("abc");
+	// Declare objects
+	//MyString s1;
+	//MyString s2;
 
 	// FIRST TEST
-	MyString::displayString(s1);
+	MyString s1("abc");
+	s1.displayString();
 
 	// SECOND TEST
-	//s1();
-	//displayString(s1);
+	MyString s2;
+	s2.displayString();
 
 	// THIRD TEST
 	//MyString s2 = s1;
@@ -97,5 +100,3 @@ int main() {
 
 	return 0;
 }
-
-
