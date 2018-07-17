@@ -189,27 +189,3 @@
   1) Note that the display function must be called pretty much every time a node is inserted or deleted.
   1) Otherwise the respective functionality will not be properly demonstrated and could lead to loss of points.
   1) Also note that each member function should properly work regardless of the current list configuration (empty list, one-node list, or multiple-node list).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
