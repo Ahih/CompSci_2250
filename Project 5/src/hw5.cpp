@@ -57,7 +57,7 @@
 using namespace std;
 
 // Initialize static member
-int MyString::strCount = 0;
+//int MyString::strCount = 0;
 
 // MAIN Program
 int main() {
@@ -67,12 +67,12 @@ int main() {
 	//MyString s2;
 
 	// FIRST TEST
-	MyString s1("abc");
-	s1.displayString();
+	//MyString s1("abc");
+	//s1.displayString();
 
 	// SECOND TEST
-	MyString s2;
-	s2.displayString();
+	//MyString s2;
+	//s2.displayString();
 
 	// THIRD TEST
 	//MyString s2 = s1;

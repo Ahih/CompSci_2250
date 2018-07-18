@@ -31,53 +31,38 @@
 	// Prior Class Declaration
 
 	// Student Class Declaration
-	class MyString {
+	class StringList {
 
 		// Private Variables
 		private:
-			char* str;
-			int size;
-			static int strCount;
+
+			// Declaration of the list structure
+			struct ListNode {
+				string str;
+				struct ListNode *next;
+			};
+
+			// Starting Node
+			ListNode *head;
 
 		// Public Functions
 		public:
 
 			// Constructors
-			MyString(string);
-			MyString();
-			MyString(const MyString &obj2);
-			~MyString();
-			MyString operator= (MyString const &obj);
-			MyString operator+= (MyString const &obj);
+			StringList();
 
+			// Destructors
+			~StringList();
 
-			// Setter Functions
-			void setSTR(string mstr) {
-				new char[size+1];
-				mstr.copy(str, size, 0);
-				str[size] = '\0';
-			}
-			void setSIZE(int msize) { size = msize; }
-
-			// Getter Functions
-			char* getSTR() { return str; }
-			int getSIZE() { return size; }
-			int getSTRCOUNT() { return strCount; }
-
-			// Display Function
-			void displayString() {
-				cout << "======= OUTPUT =======" << endl;
-				cout << "Array: " << str << endl;
-				cout << "Length: " << size << endl;
-				cout << "Count: " << strCount << endl;
-				cout << "======================" << endl;
-				cout << endl;
-			}
+			// Linked List Operations
+			void appendNode (string);
+			void insertFrontNode (string);
+			void insertBackNode (string);
+			void deleteFrontNode (string);
+			void deleteBackNode (string);
+			void displayList () const;
 
 	};
 
 // END Header File Definition
-
-
-
 #endif /* STRINGLIST_H_ */
