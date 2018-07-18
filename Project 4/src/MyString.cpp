@@ -74,8 +74,8 @@ MyString::MyString(string stringInput)
 MyString::MyString()
 {
 	// Initialize Variables
-	str = NULL;
-	size = 0;
+	setSTR(" ");
+	setSIZE(0);
 
 	// Increment strCount
 	strCount++;

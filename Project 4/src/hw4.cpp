@@ -82,21 +82,25 @@ int MyString::strCount = 0;
 // MAIN Program
 int main() {
 
-	// Declare objects
-	//MyString s1;
-	//MyString s2;
-
 	// FIRST TEST
-	MyString s1("abc");
+	MyString s1 ("abc");
 	s1.displayString();
+	s1.~MyString();
 
 	// SECOND TEST
 	MyString s2;
 	s2.displayString();
+	s2.~MyString();
 
 	// THIRD TEST
-	//MyString s2 = s1;
+	MyString s3 = s1;
+	s3.displayString();
+	//s3.~MyString();
 
+	// FOURTH TEST
+	MyString s4 (s4 += s3);
+	s4.displayString();
+	//s4.~MyString();
 
 	return 0;
 }
