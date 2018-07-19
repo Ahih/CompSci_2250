@@ -66,7 +66,7 @@ void StringList::insertFrontNode(string mstring)
    ListNode *nodePtr;					// To traverse the list
    ListNode *previousNode = nullptr;	// The previous node
 
-   // Allocate a new node and store num there.
+   // Allocate a new node and store mstring there.
    newNode = new ListNode;
    newNode->str = mstring;
 
@@ -85,12 +85,41 @@ void StringList::insertFrontNode(string mstring)
       // Initialize previousNode to nullptr.
       previousNode = nullptr;
 
-      // Skip all nodes whose value is less than num.
-      while (nodePtr != nullptr && nodePtr->str < mstring)
+      // If the new node is to be the 1st in the list,
+      // insert it before all other nodes.
+      if (previousNode == nullptr)
       {
-         previousNode = nodePtr;
-         nodePtr = nodePtr->next;
+         head = newNode;
+         newNode->next = nodePtr;
       }
+
+   }
+}
+
+void StringList::insertBackNode(string mstring)
+{
+   ListNode *newNode;					// A new node
+   ListNode *nodePtr;					// To traverse the list
+   ListNode *previousNode = nullptr;	// The previous node
+
+   // Allocate a new node and store mstring there.
+   newNode = new ListNode;
+   newNode->str = mstring;
+
+   // If there are no nodes in the list
+   // make newNode the first node
+   if (!head)
+   {
+      head = newNode;
+      newNode->next = nullptr;
+   }
+   else  // Otherwise, insert newNode
+   {
+      // Position nodePtr at the head of list.
+      nodePtr = head;
+
+      // Initialize previousNode to nullptr.
+      previousNode = nullptr;
 
       // If the new node is to be the 1st in the list,
       // insert it before all other nodes.
@@ -99,11 +128,7 @@ void StringList::insertFrontNode(string mstring)
          head = newNode;
          newNode->next = nodePtr;
       }
-      else  // Otherwise insert after the previous node.
-      {
-         previousNode->next = newNode;
-         newNode->next = nodePtr;
-      }
+
    }
 }
 
@@ -414,6 +439,20 @@ NumberList::~NumberList()
       // Position nodePtr at the next node.
       nodePtr = nextNode;
    }
-}*/
+}
+
+// Skip all nodes whose value is less than mstring.
+      while (nodePtr != nullptr && nodePtr->str < mstring)
+      {
+         previousNode = nodePtr;
+         nodePtr = nodePtr->next;
+      }
+
+ else  // Otherwise insert after the previous node.
+      {
+         previousNode->next = newNode;
+         newNode->next = nodePtr;
+      }
+*/
 
 
