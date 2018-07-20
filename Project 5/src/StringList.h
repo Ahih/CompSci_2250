@@ -55,11 +55,10 @@
 			~StringList();
 
 			// Linked List Operations
-			void appendNode (string);
 			void insertFrontNode (string);
 			void insertBackNode (string);
-			void deleteFrontNode (string);
-			void deleteBackNode (string);
+			void deleteFrontNode ();
+			void deleteBackNode ();
 			void displayList () const;
 
 	};

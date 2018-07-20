@@ -56,23 +56,33 @@
 #include <cstdlib>
 using namespace std;
 
-// Initialize static member
-//int MyString::strCount = 0;
-
 // MAIN Program
 int main() {
 
-	// Declare objects
-	//MyString s1;
-	//MyString s2;
+	// Declare object
+	StringList StringObj;
+
+	// Formatting
+	cout << "=================";
+	cout << "===== START =====";
+	cout << "=================";
 
 	// FIRST TEST
-	//MyString s1("abc");
-	//s1.displayString();
+	StringObj.insertFrontNode("First");
+	StringObj.insertBackNode("Second");
+	StringObj.insertFrontNode("Third");
+	StringObj.insertBackNode("Fourth");
+	StringObj.insertFrontNode("Fifth");
+	StringObj.insertBackNode("Sixth");
+
+	// Formatting
+	cout << "=================";
+	cout << "==== DISPLAY ====";
+	cout << "=================";
 
 	// SECOND TEST
-	//MyString s2;
-	//s2.displayString();
+	StringObj.displayList();
+	cout << endl;
 
 	// THIRD TEST
 	//MyString s2 = s1;
