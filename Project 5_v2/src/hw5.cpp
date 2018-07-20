@@ -64,29 +64,83 @@ int main() {
 
 	// Formatting
 	cout << "=================";
-	cout << "===== START =====";
+	cout << "= START =";
 	cout << "=================";
+	cout << endl;
 
 	// FIRST TEST
-	StringObj.insertFrontNode("First");
-	StringObj.insertBackNode("Second");
-	StringObj.insertFrontNode("Third");
-	StringObj.insertBackNode("Fourth");
-	StringObj.insertFrontNode("Fifth");
-	StringObj.insertBackNode("Sixth");
-
-	// Formatting
-	cout << "=================";
-	cout << "==== DISPLAY ====";
-	cout << "=================";
-
-	// SECOND TEST
+	StringObj.insertFrontNode("FIRST");
+	StringObj.displayList();
+	cout << endl;
+	StringObj.insertBackNode("SECOND");
+	StringObj.displayList();
+	cout << endl;
+	StringObj.insertFrontNode("THIRD");
+	StringObj.displayList();
+	cout << endl;
+	StringObj.insertBackNode("FOURTH");
+	StringObj.displayList();
+	cout << endl;
+	StringObj.insertFrontNode("FIFTH");
+	StringObj.displayList();
+	cout << endl;
+	StringObj.insertBackNode("SIXTH");
 	StringObj.displayList();
 	cout << endl;
 
-	// THIRD TEST
-	//MyString s2 = s1;
+	// Formatting
+	cout << "=================";
+	cout << " RESULTS ";
+	cout << "=================";
+	cout << endl;
 
+	// Display Results
+	cout << "LIST: ";
+	StringObj.displayList();
+	cout << endl;
+
+	// Formatting
+	cout << "=================";
+	cout << "= AGAIN =";
+	cout << "=================";
+	cout << endl;
+
+	// SECOND TEST
+	StringObj.deleteFrontNode();
+	StringObj.displayList();
+	cout << endl;
+	StringObj.deleteBackNode();;
+	StringObj.displayList();
+	cout << endl;
+	StringObj.deleteFrontNode();
+	StringObj.displayList();
+	cout << endl;
+	StringObj.deleteBackNode();;
+	StringObj.displayList();
+	cout << endl;
+	StringObj.deleteFrontNode();
+	StringObj.displayList();
+	cout << endl;
+	StringObj.deleteBackNode();
+	StringObj.displayList();
+	cout << endl;
+
+	// Formatting
+	cout << "=================";
+	cout << " RESULTS ";
+	cout << "=================";
+	cout << endl;
+
+	// Display Results
+	cout << "LIST: ";
+	StringObj.displayList();
+	cout << endl;
+
+	// Formatting
+	cout << "=================";
+	cout << " BYE BYE ";
+	cout << "=================";
+	cout << endl;
 
 	return 0;
 }

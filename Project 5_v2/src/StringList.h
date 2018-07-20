@@ -28,8 +28,6 @@
 	#include <iostream>
 	using namespace std;
 
-	// Prior Class Declaration
-
 	// Student Class Declaration
 	class StringList {
 
@@ -48,10 +46,10 @@
 		// Public Functions
 		public:
 
-			// Constructors
+			// Constructor
 			StringList();
 
-			// Destructors
+			// Destructor
 			~StringList();
 
 			// Linked List Operations

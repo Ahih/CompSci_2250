@@ -20,8 +20,6 @@
 
 */
 
-
-
 // Source File Information
 #include "StringList.h"
 
@@ -38,142 +36,164 @@ StringList::StringList() {
 
 // Destructor
 StringList::~StringList() {
-   ListNode *nodePtr;   // To traverse the list
-   ListNode *nextNode;  // To point to the next node
 
-   // Position nodePtr at the head of the list.
-   nodePtr = head;
+	// Establish Node Variables
+	ListNode *nodePtr;
+	ListNode *nextNode;
 
-   // While nodePtr is not at the end of the list...
-   while (nodePtr != nullptr) {
-      // Save a pointer to the next node.
-      nextNode = nodePtr->next;
+	// Position nodePtr at the head of the list
+	nodePtr = head;
 
-      // Delete the current node.
-      delete nodePtr;
+	// Navigate through list
+	while (nodePtr != nullptr) {
 
-      // Position nodePtr at the next node.
-      nodePtr = nextNode;
-   }
+		// Save the pointer to the next node
+		nextNode = nodePtr->next;
+
+		// Delete the current node
+		delete nodePtr;
+
+		// Position nodePtr at the next node
+		nodePtr = nextNode;
+	}
 }
 
+// Insert String to Beginning of List
 void StringList::insertFrontNode(string mstring) {
-   ListNode *newNode;					// A new node
-   ListNode *nodePtr;					// To traverse the list
-   ListNode *previousNode = nullptr;	// The previous node
 
-   // Allocate a new node and store mstring there.
-   newNode = new ListNode;
-   newNode->str = mstring;
+	// Establish Node Variables
+	ListNode *newNode;
+	ListNode *nodePtr;
+	ListNode *previousNode = nullptr;
 
-   // If there are no nodes in the list, make newNode the first node
-   if (!head) {
-      head = newNode;
-      newNode->next = nullptr;
-   }
+	// Create New Node and Store mstring
+	newNode = new ListNode;
+	newNode->str = mstring;
 
-   // Otherwise, insert newNode
-   else {
+	// If the list is empty, save newNode.
+	if (!head) {
+		head = newNode;
+		newNode->next = nullptr;
+	}
 
-      // Position nodePtr at the head of list.
-      nodePtr = head;
+	// Otherwise...
+	else {
 
-      // Initialize previousNode to nullptr.
-      previousNode = nullptr;
+		// Position nodePtr at the head of list
+		nodePtr = head;
 
-      // If the new node is to be the 1st in the list,
-      // insert it before all other nodes.
-      if (previousNode == nullptr) {
-         head = newNode;
-         newNode->next = nodePtr;
+		// Initialize previousNode to nullptr
+		previousNode = nullptr;
+
+		// Save newNode at the front of the list
+		if (previousNode == nullptr) {
+			head = newNode;
+			newNode->next = nodePtr;
       }
    }
 }
 
+// Append String to Back of List
 void StringList::insertBackNode(string mstring) {
-   ListNode *newNode;					// A new node
-   ListNode *nodePtr;					// To traverse the list
 
-   // Allocate a new node and store mstring there.
-   newNode = new ListNode;
-   newNode->str = mstring;
-   newNode->next = nullptr;
+	// Establish Node Variables
+	ListNode *newNode;					// A new node
+	ListNode *nodePtr;					// To traverse the list
 
-   // If there are no nodes in the list
-   // make newNode the first node
-   if (!head) {
-      head = newNode;
-   }
+	// Create New Node and Store mstring
+	newNode = new ListNode;
+	newNode->str = mstring;
+	newNode->next = nullptr;
 
-   // Otherwise, insert newNode at the end
-   else {
-      // Position nodePtr at the head of list.
-      nodePtr = head;
+	// If the list is empty, save newNode.
+	if (!head) {
+		head = newNode;
+	}
 
-      // Find the last node in the list.
-      while (nodePtr->next) {
-		 nodePtr = nodePtr->next;
-	  }
+	// Otherwise...
+	else {
 
-      // Insert newNode as the last node.
-      nodePtr->next = newNode;
+		// Position nodePtr at the head of list
+		nodePtr = head;
+
+		// Navigate to last node in the list
+		while (nodePtr->next) {
+			nodePtr = nodePtr->next;
+		}
+
+		// Save newNode as the last item
+		nodePtr->next = newNode;
    }
 }
 
+// Delete First Node
 void StringList::deleteFrontNode() {
-	ListNode *nodePtr;       // To traverse the list
 
-	// If the list is empty, do nothing.
+	// Establish Node Variables
+	ListNode *nodePtr;
+
+	// If the list is empty, do nothing
 	if (!head)
 		return;
 
+	// Otherwise...
 	else {
+
+		// Delete first node
 		nodePtr = head->next;
 		delete head;
 		head = nodePtr;
 	}
 }
 
+// Delete Last Node
 void StringList::deleteBackNode() {
-	ListNode *nodePtr;       // To traverse the list
-	ListNode *previousNode;  // To point to the previous node
 
-	// If the list is empty, do nothing.
-	if (!head)
+	// Establish Node Variables
+	ListNode *nodePtr;
+
+	// If the list is empty, do nothing
+	if (!head) {
 		return;
-
-	else {
-
-		// Position nodePtr at the head of list.
-		nodePtr = head;
-
-		// Find the last node in the list.
-		while (nodePtr->next) {
-			nodePtr = nodePtr->next;
-		}
-
-		previousNode = nodePtr;
-		delete nodePtr;
-		previousNode->next = nullptr;
 	}
+
+	// If the second item is the end, delete first item
+	if (head->next == NULL) {
+		delete head;
+		head = nullptr;
+		return;
+	}
+
+	// Position nodePtr at the head of list.
+	nodePtr = head;
+
+	// Find the last node in the list.
+	while (nodePtr->next && nodePtr->next->next != nullptr) {
+		nodePtr = nodePtr->next;
+	}
+
+	// Delete last item
+	delete nodePtr->next;
+	nodePtr->next = nullptr;
+
 }
 
 // Display Function
 void StringList::displayList() const {
-   ListNode *nodePtr;  // To move through the list
 
-   // Position nodePtr at the head of the list.
-   nodePtr = head;
+	// Establish Node Variables
+	ListNode *nodePtr;
 
-   // While nodePtr points to a node, traverse the list.
-   while (nodePtr) {
+	// Position nodePtr at the head of the list.
+	nodePtr = head;
 
-	   // Display the value in this node.
-      cout << nodePtr->str << " ";
+	// While nodePtr points to a node, traverse the list.
+	while (nodePtr) {
 
-      // Move to the next node.
-      nodePtr = nodePtr->next;
+		// Display the value in this node.
+		cout << nodePtr->str << " ";
+
+		// Move to the next node.
+		nodePtr = nodePtr->next;
    }
 }
-
-
