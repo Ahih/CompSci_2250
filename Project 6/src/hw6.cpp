@@ -113,9 +113,9 @@ int main() {
 					cin.clear();
 					cin.ignore(10000, '\n');
 
-					cout << "BEFORE ";
+					//cout << "BEFORE \n"; // Testing
 					stackConverter (myString, myStack);
-					cout << "AFTER ";
+					//cout << "AFTER \n"; // Testing
 
 					// Leave case statement
 					cin.clear();
@@ -159,7 +159,7 @@ void stackConverter ( string myString, stack <char> myStack ) {
 	// Convert STR to CHAR STACK
 	for ( int count = 0; count < MAX; count++) {
 
-		cout << "Anything";
+		//cout << "CHAR COUNT: " << count << endl; // Testing
 
 		// Assign STR at COUNT to a temporary CHAR
 		tmp = myString.at(count);
@@ -169,22 +169,84 @@ void stackConverter ( string myString, stack <char> myStack ) {
 
 				// VALID LEFT
 				case '(': case '{':
+					//cout << "PUSH \n"; // Testing
 					myStack.push(tmp);
 					break;
 
-				// VALID RIGHT
-				case '}': case ')':
-					//myStack.pop();
-					myStack.push(tmp);
-					break;
+				// VALID RIGHT "}"
+				case '}':
 
-				// INVALID
+					// Check if empty
+					if (!myStack.empty()) {
+
+						// Check if closing character
+						if (myStack.top() == '{' ) {
+							//cout << "POP \n"; // Testing
+							myStack.pop();
+							break;
+						}
+
+						// CLOSING CHAR CHECK FAILED
+						else {
+							cout << "ERROR! EXPECTED { BUT FOUND " << myStack.top() << "." << endl;
+							count = MAX;
+							break;
+						}
+					}
+
+					// EMPTY CHECK FAILED
+					else {
+						cout << "ERROR! NO LEFT { FOUND." << endl;
+						count = MAX;
+						break;
+					}
+
+				// VALID RIGHT ")"
+				case ')':
+
+					// Check if empty
+					if (!myStack.empty()) {
+
+						// Check if closing character
+						if (myStack.top() == '(' ) {
+							//cout << "POP \n"; // Testing
+							myStack.pop();
+							break;
+						}
+
+						// CLOSING CHAR CHECK FAILED
+						else {
+							cout << "ERROR! EXPECTED ( BUT FOUND " << myStack.top() << "." << endl;
+							count = MAX;
+							break;
+						}
+					}
+
+					// EMPTY CHECK FAILED
+					else {
+						cout << "ERROR! NO LEFT ( FOUND" << endl;
+						count = MAX;
+						break;
+					}
+
+				// INVALID INPUT
 				default:
-					count--;
+
+					// Ignore the CHAR
 					break;
 
 		} // END SWITCH
 
 	} // END FOR LOOP
+
+	// STACK FULL STILL
+	if (!myStack.empty()) {
+		cout << "ERROR! " << myStack.size() << " DELIMITER(s) REMAIN IN STACK!\n";
+	}
+
+	// STACK EMPTY
+	else {
+		cout << "Parentheses/braces are nested properly" << endl;
+	}
 
 } // END FUNCTION
