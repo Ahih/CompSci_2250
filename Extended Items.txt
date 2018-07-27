@@ -959,4 +959,65 @@ NumberList::~NumberList()
          previousNode->next = newNode;
          newNode->next = nodePtr;
       }
+	  
 */
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+PROJECT 6
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/*
+ * JUNK CODE
+ *
+ * Formatting
+	cout << "=================";
+	cout << "==== DISPLAY ====";
+	cout << "=================\n";
+
+	// Program Output
+	for ( int count = 0; count < myString.size(); count++) {
+		cout << myStack.top();
+		myStack.pop();
+
+		if (count == myString.size()) {
+			cout << "\nEND of DISPLAY\n";
+		}
+	}
+ *
+ * Validate User Input
+	switch (tmp) {
+
+		// VALID
+		case '(': case '{':
+			myStack.push(tmp);
+			break;
+
+		case '}': case ')':
+			//myStack.pop();
+			myStack.push(tmp);
+			break;
+
+		// INVALID
+		default:
+			cin.clear();
+			count--;
+			break;
+ *
+ * //cout << "Please enter how big is this stack: ";
+   //cin >> MAX;
+ *
+ * 	//while (!programStop) {
+		for ( int count = 0; count < MAX; count++) {
+			cin >> tmp;
+			myStack.push(tmp);
+
+			//if (count == MAX) {
+				//cout << "END of INPUT\n";
+				//programStop = true;
+
+			//}
+		}
+
+	//}
+ *
+ */
+

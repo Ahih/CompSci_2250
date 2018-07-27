@@ -52,6 +52,7 @@
 
 // System Information
 #include <iostream>
+#include <string>
 #include <vector>
 #include <stack>
 using namespace std;
@@ -60,9 +61,14 @@ using namespace std;
 int main() {
 
 	// Declare variables
-	int MAX;
+	int MAX = 0;
+	string myString;
 	char tmp;
-	//bool programStop = false;
+	bool programStop = false;
+	bool switchStop = false;
+	char programContinue;
+	int programCount = 0;
+
 
 	// Formatting
 	cout << "=================";
@@ -72,71 +78,108 @@ int main() {
 	// Define the STL stack
 	stack< char, vector<char> > myStack;
 
-	// User Input
-	cout << "Please enter how big is this stack: ";
-	cin >> MAX;
-	cout << "Enter parentheses and/or braces: ";
-	//while (!programStop) {
-		for ( int count = 0; count < MAX; count++) {
+	// START LOOP
+	while (!programStop) {
 
-			// Validate User Input
-			cin >> tmp;
-			switch (tmp) {
+		// Always run at least once.
+		if (programCount == 0) {
+			programCount++;
+			programContinue = 'Y';
+		}
 
-				// VALID
-				case '(': case '{':
-					myStack.push(tmp);
-					break;
+		// Inquire every other time.
+		else {
 
-				case '}': case ')':
-					//myStack.pop();
-					myStack.push(tmp);
+			// Ask user if they want to continue.
+			printf ("\nWould you like to continue? Please enter 'Y' or 'N'. ");
+			cin >> programContinue;
+			cin.ignore(10000, '\n');
+			switchStop = false;
+		}
 
+		// Menu Loop
+		while (!switchStop) {
 
+			// Validate user input
+			switch (programContinue) {
 
-					break;
+				// User said yes.
+				case 'Y': case 'y':
 
-				// INVALID
-				default:
+					// User Input
+					cout << "Enter parentheses and/or braces: ";
+					getline (cin, myString,'\n');
+					cout << myString;
+					cout << MAX;
+					MAX = myString.length();
+					cout << myString;
+					cout << MAX;
 					cin.clear();
-					count--;
+					cin.ignore(10000, '\n');
+					return 0;
+					cout << myString;
+					cout << MAX;
+
+					// Convert STR to CHAR STACK
+					for ( int count = 0; count < MAX; count++) {
+
+						cout << "Anything";
+
+						// Assign STR at COUNT to a temporary CHAR
+						tmp = myString.at(count);
+
+						// Validate CHAR value
+						switch (tmp) {
+
+								// VALID LEFT
+								case '(': case '{':
+									myStack.push(tmp);
+									break;
+
+								// VALID RIGHT
+								case '}': case ')':
+									//myStack.pop();
+									myStack.push(tmp);
+									break;
+
+								// INVALID
+								default:
+									count--;
+									break;
+						}
+
+					}
+
+					// Leave case statement
+					cin.clear();
+					cin.ignore(10000, '\n');
+					switchStop = true;
 					break;
-			}
-		}
 
-	//}
+				// User said no.
+				case 'N': case 'n':
 
-	// Formatting
-	cout << "=================";
-	cout << "==== DISPLAY ====";
-	cout << "=================\n";
+					// Farewell Message
+					printf ("\nThank you for using my program! See you soon...\n");
+					return 0;
 
-	// Program Output
-	for ( int count = 0; count < MAX; count++) {
-		cout << myStack.top();
-		myStack.pop();
+				// User failed to enter anything correct.
+				default:
 
-		if (count == MAX) {
-			cout << "\nEND of DISPLAY\n";
-		}
-	}
+					// Invalid Input
+					cin.clear();
+					printf ("\nPlease enter ONLY Y or N. Try again...\n");
+					switchStop = true;
+					break;
 
-	return 0;
-}
+			} // END PROGRAMCONTINUE
 
-/*
- * 	//while (!programStop) {
-		for ( int count = 0; count < MAX; count++) {
-			cin >> tmp;
-			myStack.push(tmp);
+		} // END SWITCHSTOP
 
-			//if (count == MAX) {
-				//cout << "END of INPUT\n";
-				//programStop = true;
+	} // END PROGRAMSTOP
 
-			//}
-		}
+	return 0; // DEFAULT EXIT PROGRAM
 
-	//}
- *
- */
+} // END MAIN
+
+
