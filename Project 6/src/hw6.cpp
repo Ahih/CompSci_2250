@@ -54,29 +54,30 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
 #include <stack>
 using namespace std;
+
+// Prototypes
+void stackConverter (string myString, stack <char> myStack);
 
 // MAIN Program
 int main() {
 
 	// Declare variables
-	int MAX = 0;
 	string myString;
-	char tmp;
 	bool programStop = false;
 	bool switchStop = false;
-	char programContinue;
+	char programContinue = '\0';
 	int programCount = 0;
 
+	// Define the STL stack
+	stack <char> myStack;
 
 	// Formatting
 	cout << "=================";
 	cout << "===== START =====";
 	cout << "=================\n";
-
-	// Define the STL stack
-	stack< char, vector<char> > myStack;
 
 	// START LOOP
 	while (!programStop) {
@@ -91,7 +92,7 @@ int main() {
 		else {
 
 			// Ask user if they want to continue.
-			printf ("\nWould you like to continue? Please enter 'Y' or 'N'. ");
+			cout << "\nWould you like to continue? Please enter 'Y' or 'N'. ";
 			cin >> programContinue;
 			cin.ignore(10000, '\n');
 			switchStop = false;
@@ -108,47 +109,13 @@ int main() {
 
 					// User Input
 					cout << "Enter parentheses and/or braces: ";
-					getline (cin, myString,'\n');
-					cout << myString;
-					cout << MAX;
-					MAX = myString.length();
-					cout << myString;
-					cout << MAX;
+					cin >> myString;
 					cin.clear();
 					cin.ignore(10000, '\n');
-					return 0;
-					cout << myString;
-					cout << MAX;
 
-					// Convert STR to CHAR STACK
-					for ( int count = 0; count < MAX; count++) {
-
-						cout << "Anything";
-
-						// Assign STR at COUNT to a temporary CHAR
-						tmp = myString.at(count);
-
-						// Validate CHAR value
-						switch (tmp) {
-
-								// VALID LEFT
-								case '(': case '{':
-									myStack.push(tmp);
-									break;
-
-								// VALID RIGHT
-								case '}': case ')':
-									//myStack.pop();
-									myStack.push(tmp);
-									break;
-
-								// INVALID
-								default:
-									count--;
-									break;
-						}
-
-					}
+					cout << "BEFORE ";
+					stackConverter (myString, myStack);
+					cout << "AFTER ";
 
 					// Leave case statement
 					cin.clear();
@@ -182,4 +149,42 @@ int main() {
 
 } // END MAIN
 
+// STRING TO STACK FUNCTION
+void stackConverter ( string myString, stack <char> myStack ) {
 
+	// Declare variables
+	int MAX = myString.length();
+	char tmp;
+
+	// Convert STR to CHAR STACK
+	for ( int count = 0; count < MAX; count++) {
+
+		cout << "Anything";
+
+		// Assign STR at COUNT to a temporary CHAR
+		tmp = myString.at(count);
+
+		// Validate CHAR value
+		switch (tmp) {
+
+				// VALID LEFT
+				case '(': case '{':
+					myStack.push(tmp);
+					break;
+
+				// VALID RIGHT
+				case '}': case ')':
+					//myStack.pop();
+					myStack.push(tmp);
+					break;
+
+				// INVALID
+				default:
+					count--;
+					break;
+
+		} // END SWITCH
+
+	} // END FOR LOOP
+
+} // END FUNCTION
