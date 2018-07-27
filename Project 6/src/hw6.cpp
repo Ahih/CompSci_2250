@@ -52,41 +52,91 @@
 
 // System Information
 #include <iostream>
-#include <cstdio>
-#include <cstdlib>
+#include <vector>
+#include <stack>
 using namespace std;
 
 // MAIN Program
 int main() {
 
-	// Declare object
-	//StringList StringObj;
+	// Declare variables
+	int MAX;
+	char tmp;
+	//bool programStop = false;
 
 	// Formatting
 	cout << "=================";
 	cout << "===== START =====";
-	cout << "=================";
+	cout << "=================\n";
 
-	// FIRST TEST
-	//StringObj.insertFrontNode("First");
-	//StringObj.insertBackNode("Second");
-	//StringObj.insertFrontNode("Third");
-	//StringObj.insertBackNode("Fourth");
-	//StringObj.insertFrontNode("Fifth");
-	//StringObj.insertBackNode("Sixth");
+	// Define the STL stack
+	stack< char, vector<char> > myStack;
+
+	// User Input
+	cout << "Please enter how big is this stack: ";
+	cin >> MAX;
+	cout << "Enter parentheses and/or braces: ";
+	//while (!programStop) {
+		for ( int count = 0; count < MAX; count++) {
+
+			// Validate User Input
+			cin >> tmp;
+			switch (tmp) {
+
+				// VALID
+				case '(': case '{':
+					myStack.push(tmp);
+					break;
+
+				case '}': case ')':
+					//myStack.pop();
+					myStack.push(tmp);
+
+
+
+					break;
+
+				// INVALID
+				default:
+					cin.clear();
+					count--;
+					break;
+			}
+		}
+
+	//}
 
 	// Formatting
 	cout << "=================";
 	cout << "==== DISPLAY ====";
-	cout << "=================";
+	cout << "=================\n";
 
-	// SECOND TEST
-	//StringObj.displayList();
-	cout << endl;
+	// Program Output
+	for ( int count = 0; count < MAX; count++) {
+		cout << myStack.top();
+		myStack.pop();
 
-	// THIRD TEST
-	//MyString s2 = s1;
-
+		if (count == MAX) {
+			cout << "\nEND of DISPLAY\n";
+		}
+	}
 
 	return 0;
 }
+
+/*
+ * 	//while (!programStop) {
+		for ( int count = 0; count < MAX; count++) {
+			cin >> tmp;
+			myStack.push(tmp);
+
+			//if (count == MAX) {
+				//cout << "END of INPUT\n";
+				//programStop = true;
+
+			//}
+		}
+
+	//}
+ *
+ */
